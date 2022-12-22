@@ -1,0 +1,71 @@
+ul.mtree {
+    margin-left: 0;
+    padding: 0 35px;
+  }
+  ul.mtree ul {
+    margin-left: 1em;
+  }
+  ul.mtree li {
+    list-style: none;
+  }
+  ul.mtree a {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.25px;
+  }
+  ul.mtree ul li a {
+      display: block;
+      font-size: 12px;
+      letter-spacing: -0.25px;
+  }
+  
+  ul.mtree a {
+    -webkit-transition: border 0.5s ease-out, color 300ms ease-out;
+    -moz-transition: border 0.5s ease-out, color 300ms ease-out;
+    -ms-transition: border 0.5s ease-out, color 300ms ease-out;
+    -o-transition: border 0.5s ease-out, color 300ms ease-out;
+    transition: border 0.5s ease-out, color 300ms ease-out;
+  }
+  
+  ul.mtree {
+  }
+  ul.mtree ul {
+    margin-left: 0;
+  }
+  ul.mtree ul > li {
+  }
+  ul.mtree li.mtree-node {
+    position: relative;
+  }
+  ul.mtree li.mtree-node > a:before {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 100;
+      position: absolute;
+      right: 0;
+      top: 3px;
+    font-family: "fontawesome";
+  }
+  ul.mtree li.mtree-open > a:before {
+    content: "\f106";
+    top: 3px;
+  }
+  ul.mtree li.mtree-closed > a:before {
+    content: "\f107";
+  }
+  ul.mtree ul > li:first-child {
+    margin-top: 1px;
+  }
+  ul.mtree li > a:hover {
+    color:#fff;
+  }
+  ul.mtree a {
+    padding: 5px 0px 5px 0;
+    color: #eee;
+    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  ul.mtree a:hover {
+    color:#fff;
+  }
