@@ -7,8 +7,6 @@ export class CommanService {
 
   constructor() { }
 
-  getTimes() {
-    return [
-    ]
-  }
+  
+ 
 }

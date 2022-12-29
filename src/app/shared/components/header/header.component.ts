@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { tap } from 'rxjs';
-import { filter } from 'rxjs';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-header',

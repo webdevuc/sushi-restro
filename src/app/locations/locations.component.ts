@@ -1,4 +1,7 @@
+import { LocationsService } from './service/locations.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-locations',
@@ -7,21 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationsComponent implements OnInit {
   public woodfordTimeTable: Array<{ day: string, time: string }>
-  constructor() { }
+  public storeDetails: any;
+
+  constructor(private locationsService: LocationsService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.woodfordTimeTable = this.getWoodFordTimeTable();
+    let id = this.route.snapshot.paramMap.get('id');
+    this.getDetailsById(id);
   }
 
-  getWoodFordTimeTable() {
-    return [
-      { day: 'Monday', time: '11:00am - 11:00pm' },
-      { day: 'Tuesday', time: '11:00am - 11:00pm' },
-      { day: 'Wednesday', time: '11:00am - 11:00pm' },
-      { day: 'Thursday', time: '11:00am - 11:00pm' },
-      { day: 'Friday', time: '11:00am - 12:00am' },
-      { day: 'Saturday', time: '11:00am - 12:00am' },
-      { day: 'Sunday', time: '11:00am - 11:00am' },
-    ]
+  getDetailsById(id) {
+    this.storeDetails = this.locationsService.getStoresJson().filter(element => element.id == id)[0];
   }
+
+  getURL(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+
 }

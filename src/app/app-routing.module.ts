@@ -1,3 +1,4 @@
+import { LocationsComponent } from './locations/locations.component';
 import { SustainabilityModule } from './sustainability/sustainability.module';
 import { LocationsModule } from './locations/locations.module';
 import { HomeComponent } from './home/home.component';
