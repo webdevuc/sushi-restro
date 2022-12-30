@@ -17,7 +17,6 @@ export class CardListComponent implements OnInit {
 
   redirectToDetails(id) {
     this.router.navigate(['/locations/store/', id]);
-    alert('ala bagh')
   }
 
 

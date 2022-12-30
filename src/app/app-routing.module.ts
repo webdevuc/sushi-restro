@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./blog-sidenav/blog-sidenav.module').then(m => m.BlogSidenavModule)
   },
   {
+    path: 'news-and-offers',
+    loadChildren: () => import('./blog-sidenav/blog-sidenav.module').then(m => m.BlogSidenavModule)
+  },
+  {
     path: 'locations',
     loadChildren: () => import('./locations/locations.module').then(m => m.LocationsModule)
   },
