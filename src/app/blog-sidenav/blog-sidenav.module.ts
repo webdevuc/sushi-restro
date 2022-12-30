@@ -1,3 +1,4 @@
+import { CommonHeaderComponent } from './components/common-header/common-header.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { AppModule } from './../app.module';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { BlogSidenavComponent } from './blog-sidenav.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './components/main/main.component';
+import { ContentComponent } from './components/main/content/content.component';
 
 
 
@@ -14,7 +16,9 @@ import { MainComponent } from './components/main/main.component';
   declarations: [
     BlogSidenavComponent,
     MainComponent,
-    SideNavComponent
+    SideNavComponent,
+    CommonHeaderComponent,
+    ContentComponent
   ],
   imports: [
     CommonModule,
