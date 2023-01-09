@@ -15,12 +15,12 @@
                                             class="food-element food-element-id-11226 food-image-active food-column-1 clearfix food-element-order-1"
                                             data-food="food-11226">
                                             <div class="food-item-wrap-outer">
-                                                <div class="food-item-image"><img
+                                                <div class="food-item-image bg-food-image rounded-circle"><img
                                                         src="https://imaginem.io/cinnamon/wp-content/uploads/sites/13/2017/03/plate3-750x750.jpg"
-                                                        alt="food-item"></div>
+                                                        alt="food-item" class="d-none"></div>
                                                 <div class="food-item-wrap ">
                                                     <div class="food-item-header clearfix">
-                                                        <h3 class="food-item-title">{{item.place}}</h3>
+                                                        <h3 class="food-item-title fs-18">{{item.place}}</h3>
                                                         <div class="food-item-variations-wrap clearfix">
                                                             <div class="d-flex justify-content-end">
                                                                 <a  (click)="redirectToDetails(item.id)" 
@@ -32,8 +32,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="food-item-description">
-                                                        <p class="mb-2"> {{item.address}}</p>
-                                                        <p class="text-dark fw-bold">{{item.phone}}</p>
+                                                        <p class="mb-2 fs-15"> {{item.address}}</p>
+                                                        <p class="text-dark fw-bold fs-15">{{item.phone}}</p>
                                                     </div>
                                                 </div>
                                             </div>
