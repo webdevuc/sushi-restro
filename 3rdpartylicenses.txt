@@ -1,3 +1,6 @@
+@agm/core
+MIT
+
 @angular/common
 MIT
 
