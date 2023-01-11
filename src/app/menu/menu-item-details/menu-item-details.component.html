@@ -1,0 +1,49 @@
+<div class="bitmap">
+    <img src="{{viewItem?.Image}}">
+</div>
+<h3 class="text-center">{{viewItem?.Name}}</h3>
+
+<ul class="d-flex w-100 flex-wrap justify-content-center px-0">
+    <li *ngFor="let item of viewItem?.Ingredients; let index = index"> <i class="bi bi-dot mx-2" *ngIf="index!=0"></i>
+        {{item.Name}}</li>
+</ul>
+<div class="d-flex flex-wrap w-100 justify-content-between">
+    <div class="col-md-6 text-right border-righ-white">
+        <p class="text-uppercase mb-0 text-white fs-18 d-flex justify-content-end pe-0 pe-md-4"> {{viewItem?.Quantity}}
+            PIECES</p>
+    </div>
+    <div class="col-md-6 text-left">
+        <div class="ps-0 ps-md-4">
+            <p class="text-uppercase mb-0 text-white fs-18 fw-bold"> {{viewItem?.Price| currency : viewItem?.Currency}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap w-100 justify-content-center">
+    <div class="col-md-8 mx-auto count-reactangel my-3">
+        <div class="d-flex w-100 justify-content-center py-3">
+            <button class="btn btn-secondary">-</button>
+            <div class="counter-div pointer-none mx-3">
+                {{orderQuantity}}
+            </div>
+            <button class="btn btn-secondary">+</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="d-flex w-100 justify-content-center">
+    <a
+        class="dark-gray-btn text-uppercase text-center justify-content-center d-flex align-items-center text-decoration-none pointer text-white">Add
+        To Order</a>
+</div>
+
+<div class="d-flex w-100 justify-content-center mt-4">
+    <div class="col-md-6 mx-auto">
+        <div class="d-flex justify-content-around">
+            <button class="btn bg-transperent"> <i class="bi bi-heart text-gray fs-3 text-bold"></i></button>
+            <button class="btn bg-transperent"> <i class="bi bi-info-circle text-gray fs-3 text-bold"></i> </button>
+        </div>
+    </div>
+</div>

@@ -21,8 +21,16 @@
     background-color: #dedede;
 }
 
+.pinkish-gray {
+    color: #d0cdb0;
+}
+
 .pointer {
     cursor: pointer;
+}
+
+.pointer-none {
+    cursor: none !important;
 }
 
 .fm-josefin {
@@ -31,6 +39,10 @@
 
 .fs-8 {
     font-size: 8px !important;
+}
+
+.fs-12 {
+    font-size: 12px !important;
 }
 
 .fs-13 {
@@ -45,3 +57,19 @@
     font-size: 18px !important;
 }
 
+// btn
+.dark-gray-btn {
+    width: 187px;
+    height: 49px;
+    margin: 0 3px 0 0;
+    border-radius: 2px;
+    background-color: #2a2a2a;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}

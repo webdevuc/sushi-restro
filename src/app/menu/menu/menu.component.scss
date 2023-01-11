@@ -1,0 +1,99 @@
+.bg-dark-gray-menu {
+    background-color: #15191C;
+}
+
+.bg-product-card {
+    background-color: #000916;
+
+    h3 {
+        font-weight: 500 !important;
+    }
+
+    .card-img-top {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .card-body p {
+        color: #d9d9d9;
+    }
+
+}
+
+.categories-list a {
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.4;
+    letter-spacing: 1.56px;
+    color: #d0cdb0;
+    text-transform: uppercase;
+}
+
+.categories-list a .active {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.Line-4 {
+    width: 50px;
+    height: 1px;
+    border: solid 1px #fff;
+}
+
+.rectangle {
+    background-color: #000 !important;
+    width: 100%;
+}
+
+.border-righ-white {
+    border-right: 2px solid #fff !important;
+}
+
+.pinkish-gray {
+    color: #d0cdb0;
+}
+
+.checkout-btn {
+    width: 187px;
+    height: 49px;
+    margin: 0 3px 0 0;
+    border-radius: 2px;
+    background-color: #2a2a2a;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
+
+.bottom-line {
+    height: 1px;
+    margin: 8px 0 0;
+    opacity: 0.45;
+    background-color: #979797;
+    border: solid 1px #979797;
+}
+
+.modal-dialog {
+    width: 375px;
+    height: 663px;
+
+    .modal-content {
+        padding: 0 10px 46px;
+        border-radius: 11px;
+        background-color: #090909;
+    }
+}
+
+.btn-modal-close {
+    position: absolute;
+    margin-left: auto;
+    right: 0;
+    font-size: 25px;
+    background: transparent;
+    color: #fff;
+}

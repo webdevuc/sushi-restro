@@ -1,0 +1,66 @@
+.bitmap {
+    width: 355px;
+    height: 200px;
+    margin: 0 0 22px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 18px 14px 17px;
+}
+
+li {
+    margin: 14px 0 0;
+    opacity: 0.6;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.93;
+    letter-spacing: normal;
+    text-align: center;
+    color: #d9d9d9;
+}
+
+.border-righ-white {
+    border-right: 2px solid #979797 !important;
+}
+
+.count-reactangel {
+    border-radius: 2px;
+    background-color: #000000;
+}
+
+.btn-secondary {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+}
+.counter-div {
+    width: 55px;
+    height: 40px;
+    font-size: 28px;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    background-color: #6C757D;
+    color: #fff;
+}

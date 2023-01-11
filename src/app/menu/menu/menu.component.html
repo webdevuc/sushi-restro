@@ -1,0 +1,153 @@
+<div
+    class="home page-template-default page page-id-10419 page-child parent-pageid-11724 theme-cinnamon-restaurant woocommerce-no-js top-header-present sticky-menu-off fullscreen-mode-off single-author theme-is-light demo split-menu page-is-not-fullscreen fullscreen-ui-switchable header-is-transparent-invert header-is-transparent page-is-opaque pagebuilder-active theme-fullwidth body-dashboard-push footer-is-on edge-to-edge">
+    <div id="home" class="container-wrapper container-fullwidth">
+        <div class="title-container-outer-wrap">
+            <div class="title-container-wrap">
+                <div class="title-container clearfix">
+                    <div class="entry-title-wrap">
+                        <h1 class="entry-title">Menu</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="page-contents-wrap">
+                <div id="post-5861" class="post-5861 page type-page status-publish has-post-thumbnail hentry">
+                    <div class="entry-page-wrapper entry-content clearfix">
+                        <div id="mtheme-pagebuilder-wrapper-5861" class="mtheme-pagebuilder">
+                            <div class="mtheme-modular-column column-parallax" data-stellar-background-ratio="0.5"
+                                style="
+                  background-image: url('https://imaginem.io/cinnamon/wp-content/uploads/sites/13/2015/02/image20.jpg');
+                  padding-bottom: 56px;
+                  padding-top: 324px;
+                  background-position: 50% 0px;
+                ">
+                                <div class="mtheme-supercell clearfix boxed-column text-is-bright">
+                                    <div class="column-setter first-column span12">
+                                        <div class="mtheme-cell-wrap">
+                                            <div id="mtheme-block-1"
+                                                class="mtheme-block mtheme-block-em_column_block span12 mtheme-first-cell"
+                                                data-width="12">
+                                                <div class="mtheme-cell-inner">
+                                                    <div class="row clearfix">
+                                                        <div class="mtheme-cell-wrap">
+                                                            <div id="mtheme-block-2"
+                                                                class="mtheme-block mtheme-block-em_sectionheading span12 mtheme-first-cell"
+                                                                data-width="12">
+                                                                <div class="mtheme-cell-inner">
+                                                                    <div class="section-heading animated fadeIn section-align-center animation-action"
+                                                                        style="
+                                      padding-top: 0;
+                                      padding-bottom: 76px;
+                                      margin-bottom: px;
+                                    ">
+                                                                        <!-- <h2 class="entry-sub-title animated fadeIn section-sub-title animation-action">
+                                      Small Beginnings
+                                    </h2> -->
+                                                                        <h1
+                                                                            class="animated fadeIn entry-title section-title animation-action">
+                                                                            Menu
+                                                                        </h1>
+                                                                        <!-- <div class="section-description section-style-fill">
+                                      <p>
+                                        Fusce aliquam tincidunt hendrerit. Nunc
+                                        tincidunt id velit sit amet vestibulum.
+                                        In venenatis tempus odio ut dictum.
+                                      </p>
+                                    </div> -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-dark-gray-menu">
+                                <div class="container py-5">
+                                    <div>
+                                        <div class="d-flex flex-wrap w-100">
+                                            <div class="col-lg-2">
+                                                <ul class="categories-list">
+                                                    <li class="list-unstyled d-flex w-100 h-100 justify-content-start"
+                                                        *ngFor="let item of categoryList; let i = index;"
+                                                        (click)="selectedCategory(item, i)">
+                                                        <a class="text-decoration-none pointer"
+                                                            [ngClass]="selectedCategoryItem.Id==item.Id?'text-white':''">{{item.Name}}</a>
+                                                        <div class="Line-4 my-auto ms-2 me-0"
+                                                            *ngIf="selectedCategoryItem.Id==item.Id"></div>
+                                                    </li>
+
+
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <h5 class="text-uppercase mb-0 pinkish-gray">
+                                                    {{selectedCategoryItem?.Name}}</h5>
+                                                <div class="d-flex w-100 flex-wrap justify-content-start"
+                                                    *ngIf="menuItems.length; else noItems">
+                                                    <div class="col-md-4 d-flex align-items-strech"
+                                                        *ngFor="let item of menuItems">
+                                                        <div class="card border-0  rounded-2 bg-product-card m-1 pointer"
+                                                            (click)="selectOrderItem(item)" data-keyboard="true"
+                                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                                                            <img src="{{item.Image}}" class="card-img-top">
+
+                                                            <div
+                                                                class="card-body text-uppercase text-center text-white">
+                                                                <h3 class="mb-1 fs-6 pinkish-gray ">{{item.Name}}</h3>
+                                                                <!-- <p class="mb-1">{{item.verient}}</p> -->
+                                                                <p class="mb-1">{{item.Quantity}} Pices</p>
+                                                                <p class="mb-0">{{item.Price | currency:item.Currency }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <ng-template #noItems>
+                                                    <p class="text-muted d-flex w-100  justify-content-center"> No Items
+                                                        available</p>
+
+                                                </ng-template>
+
+                                            </div>
+                                            <div class="col-lg-3 py-2">
+                                                <p class="text-white"> {{selectedOrderItem?.Id}} </p>
+                                                <app-selected-order-menus
+                                                    [newItem]="selectedOrderItem"></app-selected-order-menus>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body p-0 position-relative">
+                    <button type="button" class="btn-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <app-menu-item-details [viewItem]="viewItem"></app-menu-item-details>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
