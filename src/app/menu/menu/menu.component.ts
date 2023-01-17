@@ -1,3 +1,4 @@
+import { filter } from 'rxjs';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuService } from '../menu.service';
 
@@ -44,8 +45,26 @@ export class MenuComponent implements OnInit {
   selectOrderItem(item) {
 
     this.viewItem = item;
-    console.log('item =>', this.viewItem);
+    this.viewItem.orderQuantity = 0;
     // this.selectedOrderItem.push(item);
+  }
+
+  addItem(event) {
+    // console.log('event', event);
+    if (this.selectedOrderItem.length) {
+      this.selectedOrderItem.filter(element => {
+        if (element.Id == event.Id) {
+          console.log('test');
+          element.orderQuantity = event.orderQuantity;
+        } else {
+          this.selectedOrderItem.push(event);
+        }
+      })
+    } else {
+      this.selectedOrderItem.push(event);
+    }
+
+    document.getElementById("closeModalButton").click();
   }
 
 }

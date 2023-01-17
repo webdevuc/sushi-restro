@@ -13,16 +13,46 @@
 // @import url('assets/index/_simple-line-icons.scss');
 // @import url('assets/index/_transitions.scss');
 // @import url('assets/index/_vertical-menu.scss');
-
-
+@import '@sweetalert2/theme-dark/dark.scss';
+// your-app.scss
+$baby-blue : #a3d3ff;
+$greyblue : #6fa7bc;
+$dark-gray : #dedede;
+$pinkish-gray : #d0cdb0;
+$dark-black : #000;
 
 // comman css classes
+
+.ff-Josefin {
+    font-family: 'Josefin Sans',
+        sans-serif;
+}
+
 .bg-dark-gray {
-    background-color: #dedede;
+    background-color: $dark-gray !important;
+}
+
+.bg-dark-black {
+    background-color: $dark-black !important;
+}
+.bg-dark-yellow {
+    background-color: #F4B72E;
+}
+
+.text-dark-gray {
+    color: $dark-gray !important;
 }
 
 .pinkish-gray {
-    color: #d0cdb0;
+    color: $pinkish-gray !important;
+}
+
+.txt-baby-blue {
+    color: $baby-blue !important;
+}
+
+.txt-gray-blue {
+    color: $greyblue !important;
 }
 
 .pointer {
@@ -34,8 +64,83 @@
 }
 
 .fm-josefin {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
 }
+
+
+// btn
+.dark-gray-btn {
+    width: 187px;
+    height: 49px;
+    margin: 0 3px 0 0;
+    border-radius: 2px;
+    background-color: #2a2a2a;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
+
+.modal-dialog {
+    width: 375px !important;
+    height: 663px;
+
+    .modal-content {
+        padding: 0 10px 15px;
+        border-radius: 11px;
+        border: 1px solid #292b2e;
+        background-color: #090909;
+
+        .modal-body {
+            .form-group {
+                margin: 0px 0 20px;
+
+                input {
+                    height: 45px;
+                    color: #fff;
+                    padding: 10px 15px 15px 10px;
+                    border-radius: 3px;
+                    background-color: #242424;
+                    border: transparent;
+                    width: 100%;
+                }
+            }
+
+
+            .dark-gray-btn {
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+.btn-modal-close {
+    position: absolute;
+    margin-left: auto;
+    right: 0;
+    font-size: 25px;
+    background: transparent;
+    color: #fff;
+}
+
+
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 600 !important;
+}
+
 
 .fs-8 {
     font-size: 8px !important;
@@ -57,19 +162,45 @@
     font-size: 18px !important;
 }
 
-// btn
-.dark-gray-btn {
-    width: 187px;
-    height: 49px;
-    margin: 0 3px 0 0;
-    border-radius: 2px;
-    background-color: #2a2a2a;
-    font-size: 14px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #fff;
+.transition {
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.text-truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden !important;
+}
+
+.ws-nowrap {
+    white-space: nowrap;
+}
+
+// opacity 
+
+.op-01 {
+    opacity: 0.1;
+}
+
+.op-02 {
+    opacity: 0.2;
+}
+
+.op-03 {
+    opacity: 0.3;
+}
+
+.op-04 {
+    opacity: 0.4;
+}
+
+.op-05 {
+    opacity: 0.5;
+}
+
+.op-06 {
+    opacity: 0.6;
 }

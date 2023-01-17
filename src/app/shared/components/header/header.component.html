@@ -281,8 +281,9 @@
             </aside>
         </div>
         <div class="outer-header-wrap clearfix">
-            <div class="reservation-button menu-button-toggle"><span
-                    class="button-element sticky-menu-switch button-default-outline button-black-outline">Login</span>
+            <div class="reservation-button menu-button-toggle">
+                <span class="button-element sticky-menu-switch button-default-outline button-black-outline"
+                    (click)="!isUserLoggedIn?openLoginModal():logOutUser()">{{isUserLoggedIn?'Logout':'Login'}}</span>
             </div>
             <nav>
                 <div class="mainmenu-navigation ">

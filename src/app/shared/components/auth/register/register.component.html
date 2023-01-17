@@ -1,0 +1,66 @@
+<div class="d-flex w-100  flex-wrap">
+
+    <form class="w-100" [formGroup]="registerationForm" (ngSubmit)="onRegisterFormSubmit()">
+        <div class="form-group">
+            <input type="text" placeholder="First Name" formControlName="FirstName" required #FirstName
+                autocomplete="off">
+            <div class="fs-12 text-danger"
+                *ngIf="(isSubmited || f['FirstName'].touched) && f['FirstName']?.errors?.['required']"> Please enter
+                First Name</div>
+
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Last Name" formControlName="SureName" required #SureName autocomplete="off">
+            <div class="fs-12 text-danger"
+                *ngIf="(isSubmited || f['SureName'].touched) &&  f['SureName']?.errors?.['required']"> Please enter
+                Last Name</div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" placeholder="Email" formControlName="Email" required #Email autocomplete="off"
+                oninput="this.value = this.value.toLowerCase()">
+            <div class="fs-12 text-danger"
+                *ngIf="(isSubmited || f['Email'].touched) &&  f['Email']?.errors?.['required']"> Please enter Email
+            </div>
+            <div class="fs-12 text-danger" *ngIf="f['Email'].touched &&  f['Email']?.errors?.['pattern']"> Enter valid
+                Email
+            </div>
+        </div>
+        <div class="form-group position-relative">
+            <input type="password" placeholder="Password" formControlName="Password" required #PasswordField
+                autocomplete="off">
+            <i class="pointer bi text-dark-gray position-absolute right-0"
+                [ngClass]="PasswordField.type === 'password' ? 'bi-eye-slash-fill' : 'bi-eye-fill'"
+                (click)="PasswordField.type === 'password' ? PasswordField.type = 'text' : PasswordField.type = 'password'"></i>
+            <div class="fs-12 text-danger"
+                *ngIf="(isSubmited || f['Password'].touched) &&  f['Password']?.errors?.['required']"> Please enter
+                Password</div>
+        </div>
+        <div class="form-group position-relative">
+            <input type="password" placeholder="Confirm Password" formControlName="ConfirmPassword" required
+                #ConfirmPassword autocomplete="off">
+            <i class="pointer bi text-dark-gray position-absolute right-0"
+                [ngClass]="ConfirmPassword.type === 'password' ? 'bi-eye-slash-fill' : 'bi-eye-fill'"
+                (click)="ConfirmPassword.type === 'password' ? ConfirmPassword.type = 'text' : ConfirmPassword.type = 'password'"></i>
+            <div class="fs-12 text-danger"
+                *ngIf="(isSubmited || f['ConfirmPassword'].touched) &&  f['ConfirmPassword']?.errors?.['required']">
+                Please enter
+                Confirm Password</div>
+            <div class="fs-12 text-danger"
+                *ngIf="f['ConfirmPassword'].touched &&  (f['ConfirmPassword']?.value!==f['Password']?.value)"> Confirm
+                Password not matched with Password</div>
+        </div>
+        <div class="d-flex justify-content-start w-100 mb-5">
+            <span class="fs-14 note pe-0 pe-md-4">By registering i accept the <a
+                    class="text-decoration-none pointer txt-gray-blue">Terms
+                    of use</a>
+                and the <a class="text-decoration-none pointer txt-gray-blue">Privacy Policy</a>.</span>
+        </div>
+
+        <div class="d-flex w-100 justify-content-center flex-wrap">
+            <button type="submit"
+                class="border-0 w-100 dark-gray-btn text-uppercase text-center justify-content-center d-flex align-items-center text-decoration-none pointer txt-baby-blue">Register</button>
+        </div>
+    </form>
+
+</div>

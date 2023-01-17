@@ -1,3 +1,38 @@
 <app-header></app-header>
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
+<button id="openModalButton" [hidden]="true" data-keyboard="true" data-bs-toggle="modal"
+    data-bs-target="#loginModal">Open Modal</button>
+<button type="button" data-bs-target="#loginModal" id="closeModalButton" [hidden]="true" class="close" data-bs-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</button>
+<div class="modal fade " id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-0 position-relative">
+                <div class="d-flex w-100 justify-content-center mb-5">
+                    <div class="pointer sign-text d-flex align-items-center" (click)="isSignIn=true"
+                        [ngClass]="isSignIn ? 'text-white fw-600' : 'op-05'">
+                        <span class="pb-1" [ngClass]="isSignIn ? 'border-bottom' : ''">SIGN IN</span>
+                    </div>
+                    <div class="line"></div>
+                    <div class="pointer sign-text d-flex align-items-center" (click)="isSignIn=false"
+                        [ngClass]="!isSignIn ? 'text-white fw-600' : 'op-05'"><span class="pb-1"
+                            [ngClass]="!isSignIn ? 'border-bottom' : ''">REGISTER</span></div>
+                </div>
+
+                <div *ngIf="isSignIn;else other_content">
+                    <app-sign-in></app-sign-in>
+                </div>
+                <ng-template #other_content>
+                    <app-register></app-register>
+                </ng-template>
+
+                <a (click)="closeModal()" *ngIf="isSignIn"
+                    class="w-100 close text-uppercase text-center justify-content-center d-flex align-items-center text-decoration-none pointer text-white ff-Josefin fs-14 mt-4">skip</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <app-footer></app-footer>

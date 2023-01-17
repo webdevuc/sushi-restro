@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-menu-item-details',
   templateUrl: './menu-item-details.component.html',
@@ -7,10 +6,26 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuItemDetailsComponent implements OnInit {
   @Input() viewItem: any = null;
+  @Output() newItemEvent = new EventEmitter<string>();
   orderQuantity: number = 0
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  increaseCount() {
+    this.viewItem.orderQuantity = this.viewItem.orderQuantity + 1;
+  }
+
+  decreaseCount() {
+    if (this.viewItem.orderQuantity >= 1) {
+      this.viewItem.orderQuantity = this.viewItem.orderQuantity - 1;
+    }
+  }
+
+  onAddorder() {
+    this.newItemEvent.emit(this.viewItem);
   }
 
 }

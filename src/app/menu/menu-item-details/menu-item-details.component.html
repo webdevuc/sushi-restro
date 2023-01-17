@@ -23,27 +23,29 @@
 <div class="d-flex flex-wrap w-100 justify-content-center">
     <div class="col-md-8 mx-auto count-reactangel my-3">
         <div class="d-flex w-100 justify-content-center py-3">
-            <button class="btn btn-secondary">-</button>
+            <button class="btn btn-secondary" (click)="decreaseCount()">-</button>
             <div class="counter-div pointer-none mx-3">
-                {{orderQuantity}}
+                {{viewItem?.orderQuantity}}
             </div>
-            <button class="btn btn-secondary">+</button>
+            <button class="btn btn-secondary" (click)="increaseCount()" >+</button>
 
+        </div>
+    </div>
+</div>
+
+
+
+<div class="d-flex w-100 justify-content-center mb-3">
+    <div class="col-md-6 mx-auto">
+        <div class="d-flex justify-content-around">
+            <button class="btn bg-transperent"> <img src="assets/images/icons/favrite.jpg" width="25px" height="25px"> </button>
+            <button class="btn bg-transperent"> <img src="assets/images/icons/info.jpg" width="25px" height="25px">  </button>
         </div>
     </div>
 </div>
 
 <div class="d-flex w-100 justify-content-center">
     <a
-        class="dark-gray-btn text-uppercase text-center justify-content-center d-flex align-items-center text-decoration-none pointer text-white">Add
+        class="dark-gray-btn text-uppercase text-center justify-content-center d-flex align-items-center text-decoration-none pointer btn-text" (click)="onAddorder()">Add
         To Order</a>
-</div>
-
-<div class="d-flex w-100 justify-content-center mt-4">
-    <div class="col-md-6 mx-auto">
-        <div class="d-flex justify-content-around">
-            <button class="btn bg-transperent"> <i class="bi bi-heart text-gray fs-3 text-bold"></i></button>
-            <button class="btn bg-transperent"> <i class="bi bi-info-circle text-gray fs-3 text-bold"></i> </button>
-        </div>
-    </div>
 </div>

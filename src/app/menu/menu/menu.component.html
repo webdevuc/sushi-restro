@@ -117,7 +117,6 @@
 
                                             </div>
                                             <div class="col-lg-3 py-2">
-                                                <p class="text-white"> {{selectedOrderItem?.Id}} </p>
                                                 <app-selected-order-menus
                                                     [newItem]="selectedOrderItem"></app-selected-order-menus>
 
@@ -138,10 +137,10 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body p-0 position-relative">
-                    <button type="button" class="btn-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn-modal-close" id="closeModalButton" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <app-menu-item-details [viewItem]="viewItem"></app-menu-item-details>
+                    <app-menu-item-details [viewItem]="viewItem" (newItemEvent)="addItem($event)"></app-menu-item-details>
                 </div>
                 <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

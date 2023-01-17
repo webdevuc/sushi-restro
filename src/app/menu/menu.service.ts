@@ -5,7 +5,6 @@ import { HttpService } from '../shared/services/http.service';
   providedIn: 'root'
 })
 export class MenuService {
-
   public category: string = 'category';
   public product: string = 'product';
   constructor(private api: HttpService) { }

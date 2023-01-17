@@ -9,6 +9,7 @@ import { StickyNavModule } from 'ng2-sticky-nav';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SharedModule } from './shared/shared.module';
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
     AppRoutingModule,
     LightgalleryModule,
     StickyNavModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   exports:[
 
