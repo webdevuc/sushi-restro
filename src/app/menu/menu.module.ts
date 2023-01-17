@@ -5,6 +5,7 @@ import { MenuComponent } from './menu/menu.component';
 import { SharedModule } from '../shared/shared.module';
 import { SelectedOrderMenusComponent } from './selected-order-menus/selected-order-menus.component';
 import { MenuItemDetailsComponent } from './menu-item-details/menu-item-details.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   declarations: [
     MenuComponent,
     SelectedOrderMenusComponent,
-    MenuItemDetailsComponent
+    MenuItemDetailsComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

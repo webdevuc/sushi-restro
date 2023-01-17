@@ -17,7 +17,7 @@
                 <div class="ps-0 ps-md-4">
                     <p class="text-uppercase mb-0">time</p>
                     <p class="text-uppercase mb-0 text-white fw-bold">
-                        {{now | date:'hh:mm a'}}
+                        {{getCurrentTime | date:'hh:mm a'}}
                     </p>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     <span class="pinkish-gray fs-14 d-flex text-center">{{item?.Name}}</span>
                 </div>
                 <div class="text-white fs-14">
-                    {{item.Price| currency:item.Currency}}
+                    {{item.totalPrice| currency:item.Currency}}
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
         </ng-template>
     </div>
     <div class="card-footer text-center" *ngIf="newItem.length">
-        <button class="checkout-btn">CHECKOUT</button>
+        <button class="btn checkout-btn" (click)="checkoutWithItems()">CHECKOUT</button>
     </div>
 
 </div>

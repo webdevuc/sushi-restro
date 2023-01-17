@@ -20,6 +20,7 @@ $greyblue : #6fa7bc;
 $dark-gray : #dedede;
 $pinkish-gray : #d0cdb0;
 $dark-black : #000;
+$off-white: #fefffe;
 
 // comman css classes
 
@@ -41,6 +42,10 @@ $dark-black : #000;
 
 .text-dark-gray {
     color: $dark-gray !important;
+}
+
+.text-off-white {
+    color: $off-white !important;
 }
 
 .pinkish-gray {
@@ -141,6 +146,13 @@ $dark-black : #000;
     font-weight: 600 !important;
 }
 
+.fw-bold {
+    font-weight: bold !important;
+}
+
+.fw-normal {
+    font-weight: normal !important;
+}
 
 .fs-8 {
     font-size: 8px !important;
@@ -161,6 +173,11 @@ $dark-black : #000;
 .fs-18 {
     font-size: 18px !important;
 }
+
+.fs-24 {
+    font-size: 24px !important;
+}
+
 
 .transition {
     -webkit-transition: 0.3s;

@@ -21,10 +21,12 @@ export class MenuItemDetailsComponent implements OnInit {
   decreaseCount() {
     if (this.viewItem.orderQuantity >= 1) {
       this.viewItem.orderQuantity = this.viewItem.orderQuantity - 1;
+
     }
   }
 
   onAddorder() {
+    this.viewItem.totalPrice = this.viewItem.Price * this.viewItem.orderQuantity;
     this.newItemEvent.emit(this.viewItem);
   }
 

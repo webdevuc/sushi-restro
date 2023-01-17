@@ -1,6 +1,7 @@
 import { filter } from 'rxjs';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuService } from '../menu.service';
+import { checkoutDetails } from '../checkoutDetails';
 
 @Component({
   selector: 'app-menu',
@@ -11,13 +12,26 @@ export class MenuComponent implements OnInit {
   @Output() newSelectedOrderItemEvent = new EventEmitter<any>();
   menuItems: Array<any> = [];
   categoryList: Array<any> = [];
+  public checkoutItems: any;
   public selectedCategoryItem: any;
   public selectedOrderItem: any = [];
   public viewItem: any;
+  public isPaymentPage: boolean = false;
+
   constructor(private menusService: MenuService) { }
 
   ngOnInit(): void {
     this.getCategories();
+    this.menusService.subjectCheckoutItems.subscribe(response => {
+      if (response) {
+        this.additems(response);
+      }
+    })
+  }
+
+  additems(response) {
+    this.checkoutItems = response;
+    this.isPaymentPage = true;  
   }
 
   getCategories() {
@@ -43,18 +57,14 @@ export class MenuComponent implements OnInit {
   }
 
   selectOrderItem(item) {
-
     this.viewItem = item;
     this.viewItem.orderQuantity = 0;
-    // this.selectedOrderItem.push(item);
   }
 
   addItem(event) {
-    // console.log('event', event);
     if (this.selectedOrderItem.length) {
       this.selectedOrderItem.filter(element => {
         if (element.Id == event.Id) {
-          console.log('test');
           element.orderQuantity = event.orderQuantity;
         } else {
           this.selectedOrderItem.push(event);

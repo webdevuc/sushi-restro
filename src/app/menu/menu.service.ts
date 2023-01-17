@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { HttpService } from '../shared/services/http.service';
+import { checkoutDetails } from './checkoutDetails';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
+  public subjectCheckoutItems = new Subject<any>();
   public category: string = 'category';
   public product: string = 'product';
   constructor(private api: HttpService) { }

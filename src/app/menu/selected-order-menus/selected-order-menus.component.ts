@@ -2,6 +2,8 @@ import { AgmMap, MapsAPILoader } from '@agm/core';
 
 import { ChangeDetectorRef, Component, NgZone, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Input } from '@angular/core';
+import { CommanService } from 'src/app/shared/services/comman.service';
+import { MenuService } from '../menu.service';
 @Component({
   selector: 'app-selected-order-menus',
   templateUrl: './selected-order-menus.component.html',
@@ -11,22 +13,21 @@ export class SelectedOrderMenusComponent implements OnInit {
   @ViewChild(AgmMap, { static: true }) public agmMap: AgmMap;
   @Input() newItem: any = null;
   menuItems: Array<any> = [];
-  public now: Date = new Date();
   public currencyUsed: string;
   public totalCalculatedPrice: number = 0;
   private geoCoder;
   public myLocation: string;
-  constructor(private cd: ChangeDetectorRef, private mapsAPILoader: MapsAPILoader) {
-    setInterval(() => {
-      this.now = new Date();
-    }, 1);
-    if (this.newItem)
+  constructor(private cd: ChangeDetectorRef, private mapsAPILoader: MapsAPILoader, private menuService: MenuService, private commonService: CommanService) {
+
+    if (this.newItem) {
       this.currencyUsed = this.newItem[0].Currency;
-    this.mapsAPILoader.load().then(() => {
-      this.getLocation();
-      this.geoCoder = new google.maps.Geocoder();
-    });
+      this.mapsAPILoader.load().then(() => {
+        this.getLocation();
+        this.geoCoder = new google.maps.Geocoder();
+      });
+    }
   }
+
 
 
   ngOnInit(): void {
@@ -36,6 +37,9 @@ export class SelectedOrderMenusComponent implements OnInit {
     });
   }
 
+  get getCurrentTime() {
+    return this.commonService.currentTime;
+  }
 
   ngDoCheck() {
     this.getTotalPrice();
@@ -43,7 +47,7 @@ export class SelectedOrderMenusComponent implements OnInit {
 
   public getTotalPrice() {
     this.totalCalculatedPrice = 0;
-    this.totalCalculatedPrice = this.newItem.map(t => t.Price).reduce((acc, value) => Number(acc) + Number(value), 0);
+    this.totalCalculatedPrice = this.newItem.map(t => t.totalPrice).reduce((acc, value) => Number(acc) + Number(value), 0);
     this.cd.detectChanges();
   }
 
@@ -73,5 +77,9 @@ export class SelectedOrderMenusComponent implements OnInit {
       }
 
     });
+  }
+
+  checkoutWithItems() {
+    this.menuService.subjectCheckoutItems.next(this.newItem);
   }
 }

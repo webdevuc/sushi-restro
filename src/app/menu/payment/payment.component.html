@@ -1,0 +1,101 @@
+<div class="col-12 payment">
+    <div class="accordion accordion-flush w-100 bg-payment-dark text-white" id="accordionFlushExample">
+        <div class="accordion-item w-100 bg-payment-dark text-white rounded-3">
+            <h2 class="accordion-header bg-payment-dark text-white" id="flush-headingOne">
+                <button class="accordion-button collapsed bg-payment-dark text-white d-flex w-100 shadow-none"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                    aria-controls="flush-collapseOne">
+                    <div class="d-flex w-100 ">
+                        <div class="col-3">
+                            <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+                                <span class="items-length rounded-circle me-3">{{checkoutItems?.length}}</span>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <span class="d-flex align-items-center pt-2">ITEMS</span>
+                        </div>
+                    </div>
+
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <div class="d-flex justify-content-between w-100 mb-2" *ngFor="let item of checkoutItems">
+                        <div class="w-75 d-flex">
+                            <span class="text-muted fs-14 pe-3">{{item?.orderQuantity==0?1:item?.orderQuantity}}x</span>
+                            <span class="pinkish-gray fs-14 d-flex text-center">{{item?.Name}}</span>
+                        </div>
+                        <div class="text-white fs-14">
+                            {{item.totalPrice| currency:item.currency}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box mt-3">
+        <div class="d-flex w-100 ">
+            <div class="col-3"></div>
+            <div class="col-9">
+                <label class="text-uppercase op-05 text-white fs-13">COLLECTION</label>
+                <p class="text-uppercase text-off-white fs-14 fw-bold mb-0">Canery wharf <span
+                        class="fw-normal"><em>(dummy)</em></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="box mt-3">
+        <div class="d-flex w-100 ">
+            <div class="col-3">
+                <i class="bi bi-clock d-flex align-items-center h-100 text-center fw-bold fs-3 text-white"></i>
+            </div>
+            <div class="col-9">
+                <label class="text-uppercase op-05 text-white fs-13 ">Time</label>
+                <p class="text-uppercase text-off-white fs-14 fw-bold mb-0">Today {{getCurrentTime| date:'hh:mm a'}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="box mt-3 pb-3">
+        <div class="d-flex w-100 ">
+            <div class="col-3">
+
+            </div>
+            <div class="col-9">
+                <label class="text-uppercase op-05 text-white fs-13 ">Tip</label>
+                <div class="d-flex w-100 justify-content-start">
+                    <button *ngFor="let item of tips" class="btn btn-link text-decoration-none text-white fw-bold p-1"
+                        (click)="addTip(item)">{{item}}%</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box mt-3">
+        <div class="d-flex w-100 ">
+            <textarea class="bg-transparent border-0 w-100 op-05 text-white" maxlength="100">Note</textarea>
+        </div>
+    </div>
+
+    <div class="box mt-3">
+        <div class="d-flex w-100 justify-content-between">
+            <label class="text-uppercase op-05 text-white fs-13 ">SUB TOTAL (PLUS VAT)</label>
+            <p class="text-uppercase text-off-white fs-14 fw-bold mb-0">{{ subTotal| currency:
+                CurrencyUse}}</p>
+        </div>
+        <div class="d-flex w-100 justify-content-between mb-4">
+            <label class="text-uppercase op-05 text-white fs-13 ">VAT</label>
+            <p class="text-uppercase text-off-white fs-14 fw-bold mb-0">{{vat | currency:CurrencyUse}}</p>
+        </div>
+        <div class="d-flex w-100 justify-content-end ">
+            <p class="text-uppercase text-off-white fs-24 fw-bold mb-0">{{total | currency : CurrencyUse}}</p>
+        </div>
+    </div>
+
+    <div class="d-flex w-100 mt-5">
+        <a class="dark-gray-btn w-100 text-decoration-none my-auto d-flex justify-content-center align-items-center text-white pointer"
+            (click)="makePayment()">MAKE PAYMENT</a>
+    </div>
+</div>

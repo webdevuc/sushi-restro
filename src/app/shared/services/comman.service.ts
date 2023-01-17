@@ -10,6 +10,7 @@ export class CommanService {
   subjectOpenLoginModal = new Subject<boolean>();
   public userDetails: any;
   tokenkey: string = 'userData';
+  public newTime: Date;
   constructor(public cookieService: CookieService) {
 
   }
@@ -25,6 +26,13 @@ export class CommanService {
 
   removeUserData() {
     this.cookieService.delete(this.tokenkey);
+  }
+
+  public get currentTime() {
+    setInterval(() => {
+      this.newTime = new Date();
+    }, 1);
+    return this.newTime;
   }
 
   callSuccessSwal(message) {
