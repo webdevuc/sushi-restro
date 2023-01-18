@@ -21,20 +21,20 @@ export class SelectedOrderMenusComponent implements OnInit {
 
     if (this.newItem) {
       this.currencyUsed = this.newItem[0].Currency;
-      this.mapsAPILoader.load().then(() => {
-        this.getLocation();
-        this.geoCoder = new google.maps.Geocoder();
-      });
+      // this.mapsAPILoader.load().then(() => {
+      //   this.getLocation();
+      //   this.geoCoder = new google.maps.Geocoder();
+      // });
     }
   }
 
 
 
   ngOnInit(): void {
-    this.mapsAPILoader.load().then(() => {
-      this.getLocation();
-      this.geoCoder = new google.maps.Geocoder();
-    });
+    // this.mapsAPILoader.load().then(() => {
+    //   this.getLocation();
+    //   this.geoCoder = new google.maps.Geocoder();
+    // });
   }
 
   get getCurrentTime() {

@@ -78,11 +78,11 @@
 
                             <div class="mtheme-modular-column column-parallax" data-stellar-background-ratio="0.5"
                                 style="
-                 background-image: url(assets/images/background-image/home-page-full.png);
-                  padding-bottom: 56px;
-                  padding-top: 324px;
                   background-position: 50% 0px;
                 ">
+                                <video autoplay muted loop id="myVideo" class="w-100">
+                                    <source src="assets/images/TheSushiCo_Homepage Video_V1.mp4" type="video/mp4">
+                                </video>
                                 <div class="mtheme-supercell clearfix boxed-column text-is-bright">
                                     <div class="column-setter first-column span12">
                                         <div class="mtheme-cell-wrap">
@@ -102,10 +102,10 @@
                                       padding-bottom: 76px;
                                       margin-bottom: px;
                                     ">
-                                                                        <h2
+                                                                        <!-- <h2
                                                                             class="entry-sub-title animated fadeIn section-sub-title animation-action  text-white ">
                                                                             Welcome to
-                                                                        </h2>
+                                                                        </h2> -->
                                                                         <!-- <h1
                                                                             class="animated fadeIn entry-title section-title animation-action">
                                                                             Locations
@@ -138,7 +138,7 @@
                                                                     <div
                                                                         class="section-heading none section-align-center">
                                                                         <!-- animation-standby animated fadeIn  -->
-                                                                        <h2 class="entry-sub-title section-sub-title">
+                                                                        <h2 class="ls-10 fs-1 text-subtitle-clr mb-1">
                                                                             Minutes fresh</h2>
                                                                         <h2 class="ls-10 text-dark fs-1">
                                                                             SUSHI IS HERE!</h2>
@@ -163,7 +163,9 @@
 
                                                                         <div
                                                                             class="d-flex justify-content-center w-100">
-                                                                            <div
+                                                                            <button class="btn bg-dark-black text-uppercase text-white m-2"> <img src="assets/images/icons/bike.jpg" width="25" height="25" /> Deliver</button>
+                                                                            <button class="btn bg-dark-black text-uppercase text-white m-2"><img src="assets/images/icons/collect.jpg"  width="25" height="25" /> Collect</button>
+                                                                            <!-- <div
                                                                                 class="bg-dark-gray m-2 rounded icon-box">
                                                                             </div>
                                                                             <div
@@ -171,7 +173,7 @@
                                                                             </div>
                                                                             <div
                                                                                 class="bg-dark-gray m-2 rounded  icon-box">
-                                                                            </div>
+                                                                            </div> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -199,7 +201,7 @@
                                                     </p>
                                                     <a class="button-element button-default-outline  text-decoration-none mt-5"
                                                         [routerLink]="['/news-and-offers']">
-                                                        Letest offers and news
+                                                        Latest offers and news
                                                     </a>
                                                 </div>
                                             </div>

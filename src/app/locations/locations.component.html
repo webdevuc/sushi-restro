@@ -31,9 +31,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <iframe
-                                        [src]="getURL(storeDetails.geoLocation)"
-                                        width="100%" height="450px" frameborder="0" style="
+                                    <iframe [src]="getURL(storeDetails.geoLocation)" width="100%" height="450px"
+                                        frameborder="0" style="
                                                           border: 0;
                                                           -webkit-filter: grayscale(100%);
                                                           filter: grayscale(100%);
@@ -47,7 +46,8 @@
                                     <div class="p-5">
                                         <h2 class="animated fadeIn entry-title section-title animation-action">
                                             Opening Times</h2>
-                                        <div *ngFor="let item of  storeDetails.timeTable" class="d-flex w-100 mb-2 fw-600">
+                                        <div *ngFor="let item of  storeDetails.timeTable"
+                                            class="d-flex w-100 mb-2 fw-600">
                                             <div class="col-6">
                                                 {{item.day}}
                                             </div>
@@ -78,7 +78,8 @@
                             <div class="d-flex w-100 flex-wrap">
                                 <div class="col-md-6 bg-dark-gray">
                                     <div class="p-5">
-                                        <h2 class="animated fadeIn entry-title section-title animation-action text-center">
+                                        <h2
+                                            class="animated fadeIn entry-title section-title animation-action text-center">
                                             Delivery</h2>
                                         <div class="col-lg-10 text-center mx-auto">
                                             <p>Quisque fermentum nulla vitae sapien
@@ -88,15 +89,28 @@
                                         </div>
 
                                         <div class="d-flex justify-content-center">
-                                            <img *ngIf="storeDetails.deliveroo" src="assets/images/delivery-partner/deliveroo.png" alt="deliveroo" width="75" height="75" class="m-2">
-                                            <img *ngIf="storeDetails.justeat" src="assets/images/delivery-partner/just-eat.png" alt="just-eat" width="75" height="75" class="m-2">
-                                            <img *ngIf="storeDetails.ubereats" src="assets/images/delivery-partner/uber-eats.png" alt="uber-eats" width="75" height="75" class="m-2">
+                                            <ng-container *ngFor="let partner of storeDetails.deliveryPartner">
+                                                <a href="{{partner.orderLink}}" target="_blank">
+                                                    <img *ngIf="partner.display" src="{{partner.logo}}" alt="deliveroo"
+                                                        width="75" height="75" class="m-2">
+                                                </a>
+                                            </ng-container>
+                                            <!-- <img *ngIf="storeDetails.deliveroo"
+                                                src="assets/images/delivery-partner/deliveroo.png" alt="deliveroo"
+                                                width="75" height="75" class="m-2">
+                                            <img *ngIf="storeDetails.justeat"
+                                                src="assets/images/delivery-partner/just-eat.png" alt="just-eat"
+                                                width="75" height="75" class="m-2">
+                                            <img *ngIf="storeDetails.ubereats"
+                                                src="assets/images/delivery-partner/uber-eats.png" alt="uber-eats"
+                                                width="75" height="75" class="m-2"> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="d-flex flex-wrap w-100 justify-content-center p-5">
-                                        <h2 class="animated fadeIn entry-title section-title animation-action d-flex w-100 justify-content-center">
+                                        <h2
+                                            class="animated fadeIn entry-title section-title animation-action d-flex w-100 justify-content-center">
                                             Collect</h2>
 
                                         <div class="col-lg-8 text-center mx-auto">

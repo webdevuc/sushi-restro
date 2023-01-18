@@ -1,0 +1,71 @@
+<div class="mtheme-modular-column column-parallax bg-dark-gray" data-stellar-background-ratio="0.5"
+    style="background-attachment : cover;padding-bottom:112px;padding-top:112px; ">
+    <div class="mtheme-supercell clearfix  boxed-column">
+        <div class="column-setter first-column span12">
+            <div class="mtheme-cell-wrap">
+                <div id="mtheme-block-7" class="mtheme-block mtheme-block-em_column_block span12 mtheme-first-cell "
+                    data-width="12">
+                    <div class="mtheme-cell-inner">
+                        <div class="d-flex w-100 flex-wrap justify-content-center">
+                            <div class="card shadow-sm col-xl-8 col-lg-10 col-md-10 mx-auto border rounded-4">
+                                <div class="card-body">
+                                    <h2 class="food-main-title"></h2>
+                                    <ul class="food-list  food-column-one clearfix">
+                                        <li *ngFor="let item of storeLocations"
+                                            class="food-element food-element-id-11226 food-image-active food-column-1 clearfix food-element-order-1"
+                                            data-food="food-11226">
+                                            <div class="food-item-wrap-outer">
+                                                <div class="food-item-image bg-food-image rounded-circle"><img
+                                                        src="https://imaginem.io/cinnamon/wp-content/uploads/sites/13/2017/03/plate3-750x750.jpg"
+                                                        alt="food-item" class="d-none"></div>
+                                                <div class="food-item-wrap ">
+                                                    <div
+                                                        class="food-item-header d-flex justify-content-between flex-wrap w-100">
+                                                        <div>
+                                                            <h3 class="food-item-title fs-18">{{item.place}}</h3> <br />
+                                                            <div class="food-item-description w-100">
+                                                                <p class="mb-2 fs-15"> {{item.address}}</p>
+                                                                <p class="text-dark fw-bold fs-15 mb-0">{{item.phone}}
+                                                                </p>
+                                                            </div>
+
+                                                            <button (click)="redirectToDetails(item.id)"
+                                                                class="btn btn-link text-decoration-none text-dark pointer my-2 px-0">FULL
+                                                                INFO
+
+                                                            </button>
+
+                                                        </div>
+                                                        <div
+                                                            class="food-item-variations-wrap clearfix d-flex align-items-center">
+                                                            <div class="d-flex justify-content-center">
+                                                                <ng-container
+                                                                    *ngFor="let partner of item.deliveryPartner">
+                                                                    <a href="{{partner.orderLink}}" target="_blank">
+                                                                        <img *ngIf="partner.display"
+                                                                            src="{{partner.logo}}" alt="deliveroo"
+                                                                            width="50" height="50" class="m-2"></a>
+                                                                </ng-container>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                    <!-- <div class="food-menu-button d-flex justify-content-center">
+                                        <a class="button-element button-default-outline" href="#">
+                                            View Full Menu
+                                        </a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
