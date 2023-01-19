@@ -4,7 +4,7 @@
         ]">
 
     <!-- <div class="preloader-cover-screen"></div> -->
-    <div id="modal-reservation d-none">
+    <div id="modal-reservation" class="d-none">
         <div class="window-modal-outer">
             <div class="window-modal-inner">
                 <div class="window-modal-text entry-content"><span class="reservation-modal-exit"><i
@@ -154,15 +154,14 @@
             </div>
         </div>
     </div>
-    <div class="responsive-menu-overlay"></div>
-    <div class="responsive-mobile-menu">
+    <div id="mbbileOverly" class="responsive-menu-overlay"></div>
+    <div id="responsiveMobileMenu" class="responsive-mobile-menu">
         <nav>
             <ul id="menu-main-menu" class="mtree">
-                <li *ngFor="let item of navMenuItems"
-                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home">
-                    <a class="text-decoration-none" [routerLink]="[item.path]">
+                <li *ngFor="let item of navMenuItems">
+                    <button class="btn text-dark " [routerLink]="item.path" (click)="closeMobleMenu()">
                         {{item.name}}
-                    </a>
+                    </button>
                 </li>
 
             </ul>

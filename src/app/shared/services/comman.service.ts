@@ -56,13 +56,13 @@ export class CommanService {
 
   getNavMenus() {
     return [
-      { path: '../home', name: 'Home' },
-      { path: '../locations', name: 'Locations' },
-      { path: '../menu', name: 'Menu' },
-      { path: '../order', name: 'Order' },
-      { path: '../about-us', name: 'About Us' },
-      { path: '../sustainability', name: 'Sustainability' },
-      { path: '../contact-us', name: ' Contact Us' },
+      { path: '/home', name: 'Home' },
+      { path: '/locations', name: 'Locations' },
+      { path: '/menu', name: 'Menu' },
+      { path: '/order', name: 'Order' },
+      { path: '/about-us', name: 'About Us' },
+      { path: '/sustainability', name: 'Sustainability' },
+      { path: '/contact-us', name: ' Contact Us' },
     ]
   }
 

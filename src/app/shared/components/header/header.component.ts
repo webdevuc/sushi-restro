@@ -27,6 +27,8 @@ export class HeaderComponent {
     ).subscribe()
 
     this.navMenuItems = this.commanService.getNavMenus();
+    let rmmo = document.getElementById('responsive-m-menu-overlay');
+    console.log('responsive-m-menu-overlay', rmmo);
   }
 
   openLoginModal() {
@@ -35,6 +37,11 @@ export class HeaderComponent {
 
   logOutUser() {
 
+  }
+
+  closeMobleMenu() {
+    let element = document.getElementById('mobile-toggle-menu');
+    element.click();
   }
 
 }
