@@ -3,8 +3,8 @@
         : 'home page-template-default page page-id-10419 page-child parent-pageid-11724 theme-cinnamon-restaurant woocommerce-no-js top-header-present sticky-menu-off fullscreen-mode-off single-author theme-is-light demo split-menu page-is-not-fullscreen fullscreen-ui-switchable header-is-transparent-invert header-is-transparent page-is-opaque pagebuilder-active theme-fullwidth body-dashboard-push footer-is-on edge-to-edge'
         ]">
 
-    <div class="preloader-cover-screen"></div>
-    <div id="modal-reservation">
+    <!-- <div class="preloader-cover-screen"></div> -->
+    <div id="modal-reservation d-none">
         <div class="window-modal-outer">
             <div class="window-modal-inner">
                 <div class="window-modal-text entry-content"><span class="reservation-modal-exit"><i
@@ -143,8 +143,7 @@
         </div>
     </div>
     <div class="responsive-menu-wrap">
-        <nav id="mobile-toggle-menu" class="mobile-toggle-menu mobile-toggle-menu-close"
-            [class.mobile-toggle-menu-open]="isNavClicked" (click)="isNavClicked=!isNavClicked">
+        <nav id="mobile-toggle-menu" class="mobile-toggle-menu mobile-toggle-menu-close">
             <span class="mobile-toggle-menu-trigger"><span>Menu</span></span>
         </nav>
         <div class="reservation-button menu-button-toggle"><span class="reservation-button-element"><i
@@ -155,57 +154,20 @@
             </div>
         </div>
     </div>
-    <div class="responsive-menu-overlay "   [ngClass]="isNavClicked ? 'op-1 w-100' : ''"></div>
-    <div class="responsive-mobile-menu" [class.menu-push-onscreen]="isNavClicked">
+    <div class="responsive-menu-overlay"></div>
+    <div class="responsive-mobile-menu">
         <nav>
             <ul id="menu-main-menu" class="mtree">
-
-                <li *ngFor="let item of navMenuItems">
-                    <a [routerLink]="[item.path]" (click)="isNavClicked=false">
+                <li *ngFor="let item of navMenuItems"
+                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home">
+                    <a class="text-decoration-none" [routerLink]="[item.path]">
                         {{item.name}}
                     </a>
                 </li>
-                <!-- <li>
-                    <a [routerLink]="['../locations']">
-                        Locations
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="['../home']">
-                        Menu
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="['../order']">
-                        Order
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="['../about-us']">
-                        About Us
-                    </a>
-                </li>
-
-                <li>
-                    <a [routerLink]="['../sustainability']">
-                        Sustainability
-                    </a>
-                </li>
-
-                <li>
-                    <a [routerLink]="['../contact-us']">
-                        Contact Us
-                    </a>
-
-                </li> -->
-
-                <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11921"><a
-                        href="https://imaginem.io/cinnamon/shop/">Delivery</a></li> -->
-
 
             </ul>
         </nav>
-        <div class="mobile-social-header d-none">
+        <div class="mobile-social-header">
             <aside id="msocial-widget-2" class="widget MSocial_Widget">
                 <div class="social-header-wrap">
                     <ul>
@@ -246,8 +208,8 @@
         </div>
         <div class="cleafix"></div>
     </div>
-    <div class="outer-wrap stickymenu-zone">
-        <div class="menu-social-header">
+    <div class="outer-wrap stickymenu-zone ">
+        <!-- <div class="menu-social-header">
             <aside id="msocial-widget-1" class="widget MSocial_Widget">
                 <div class="social-header-wrap">
                     <ul>
@@ -280,7 +242,7 @@
                     </ul>
                 </div>
             </aside>
-        </div>
+        </div> -->
         <div class="outer-header-wrap clearfix">
             <div class="reservation-button menu-button-toggle">
                 <span class="button-element sticky-menu-switch button-default-outline button-black-outline"
