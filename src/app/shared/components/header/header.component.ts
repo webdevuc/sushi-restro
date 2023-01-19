@@ -12,6 +12,8 @@ export class HeaderComponent {
 
   isWhiteHeader: boolean = false;
   isUserLoggedIn: boolean = false;
+  isNavClicked: boolean = false;
+  navMenuItems: Array<any> = [];
 
   constructor(
     private readonly _router: Router, private commanService: CommanService
@@ -23,6 +25,8 @@ export class HeaderComponent {
         else this.isWhiteHeader = false
       })
     ).subscribe()
+
+    this.navMenuItems = this.commanService.getNavMenus();
   }
 
   openLoginModal() {
@@ -30,7 +34,7 @@ export class HeaderComponent {
   }
 
   logOutUser() {
-    
+
   }
 
 }
