@@ -77,7 +77,8 @@
 
                 </div>
                 <div class="d-flex w-100 flex-wrap" *ngIf="!isShowCurrent">
-                    <input type="time" class="form-control w-100 bg-dark text-white mt-2" placeholder="Select time">
+                    <ngx-timepicker-field [defaultTime]="'11:11 am'" [(ngModel)]="selectedTime" [controlOnly]="true"></ngx-timepicker-field>
+                    <!-- <input type="time" class="form-control w-100 bg-dark text-white mt-2" placeholder="Select time"> -->
                 </div>
             </div>
         </div>

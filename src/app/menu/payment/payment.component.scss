@@ -115,3 +115,40 @@ $dark-gray-payment-bg : #1e2123;
         }
     }
 }
+
+.ngx-timepicker-control__input, .ngx-timepicker-control, .ngx-timepicker-control--active {
+    background-color: transparent !important;
+    border: none !important;
+
+    &::after {
+        border: none !important;
+    }
+}
+
+.period-selector {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: 0 !important;
+    // max-width: 135px;
+    width: auto !important;
+    padding: 6px 0;
+    margin: 0;
+    list-style: none;
+    background-color: #f5f5f5df !important;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 2px 1px -1px rgb(0 0 0 / 12%);
+    z-index: 201;
+    /* background: #0000006b; */
+    /* color: #fff; */
+}
+
+.period-control__button, .ngx-timepicker-control--active {
+    border: none !important;
+
+    &::after {
+        border: none !important;
+    }
+
+    &:focus {
+        border: none !important;
+    }
+}

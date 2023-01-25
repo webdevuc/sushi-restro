@@ -8,6 +8,7 @@ import { SelectedOrderMenusComponent } from './selected-order-menus/selected-ord
 import { MenuItemDetailsComponent } from './menu-item-details/menu-item-details.component';
 import { PaymentComponent } from './payment/payment.component';
 import { DatepickerModule } from 'ng2-datepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 const routes: Routes = [
   {
     path: '',
@@ -28,7 +29,9 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes),
     SharedModule,
-    DatepickerModule
+    DatepickerModule,
+    // NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule.setLocale('en')
     
   ]
 })
