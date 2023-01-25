@@ -93,8 +93,7 @@
                                                         <div class="col-md-4 d-flex align-items-strech"
                                                             *ngFor="let item of menuItems">
                                                             <div class="card border-0  rounded-2 bg-product-card m-1 pointer"
-                                                                (click)="selectOrderItem(item)" data-keyboard="true"
-                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                                (click)="selectOrderItem(item)" >
 
                                                                 <img src="{{item.Image}}" class="card-img-top">
 
@@ -103,11 +102,13 @@
                                                                     <h3 class="mb-1 fs-6 pinkish-gray ">{{item.Name}}
                                                                     </h3>
                                                                     <!-- <p class="mb-1">{{item.verient}}</p> -->
-                                                                    <p class="mb-1">{{item.Quantity}} Pices</p>
+                                                                    <p class="mb-1">{{item.Quantity}} Pieces</p>
                                                                     <p class="mb-0">{{item.Price |
                                                                         currency:item.Currency }}
                                                                     </p>
                                                                 </div>
+                                                                <button type="button" id="openStaticModalButton" data-keyboard="true"
+                                                                data-bs-toggle="modal" [hidden]="true"  data-bs-target="#staticBackdrop"></button>
                                                             </div>
                                                         </div>
 
@@ -143,7 +144,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal" id="staticBackdrop"  data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

@@ -7,12 +7,13 @@
     <li *ngFor="let item of viewItem?.Ingredients; let index = index"> <i class="bi bi-dot mx-2" *ngIf="index!=0"></i>
         {{item.Name}}</li>
 </ul>
-<div class="d-flex flex-wrap w-100 justify-content-between">
-    <div class="col-md-6 text-right border-righ-white">
+<div class="d-flex flex-wrap w-100 justify-content-center">
+    <div class="col-md-5 text-right ">
         <p class="text-uppercase mb-0 text-white fs-18 d-flex justify-content-end pe-0 pe-md-4"> {{viewItem?.Quantity}}
             PIECES</p>
     </div>
-    <div class="col-md-6 text-left">
+    <div class="border-righ-white mx-2"></div>
+    <div class="col-md-5 text-left">
         <div class="ps-0 ps-md-4">
             <p class="text-uppercase mb-0 text-white fs-18 fw-bold"> {{viewItem?.Price| currency : viewItem?.Currency}}
             </p>

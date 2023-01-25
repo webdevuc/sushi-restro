@@ -1,4 +1,92 @@
 <div class="col-12 payment">
+    <div>
+        <label class="text-uppercase text-white d-flex w-100 "> <i class="bi bi-clock fw-bold text-white fs-3"></i>
+            <span class="d-flex align-items-center ms-5">Select Time :</span></label>
+        <div class="d-flex w-100 justify-content-between flex-wrap mb-3">
+            <div class="col-6 pe-1">
+                <div class="box-select-time d-flex flex-wrap w-100 justify-content-center mx-1">
+                    <div class="d-flex w-100 justify-content-center mb-3">
+                        <i class="bi bi-clock d-flex align-items-center h-100 text-center fw-bold fs-3 text-white"></i>
+                    </div>
+
+                    <p class="text-white text-uppercase mb-0 fs-13">asap</p>
+                </div>
+            </div>
+            <div class="col-6 ps-1">
+                <div class="box-select-time d-flex flex-wrap w-100 justify-content-center">
+                    <div class="d-flex w-100 justify-content-center mb-3">
+                        <i class="bi bi-clock d-flex align-items-center h-100 text-center fw-bold fs-3 text-white"></i>
+                    </div>
+
+                    <p class="text-white text-uppercase mb-0 fs-13">later</p>
+                </div>
+            </div>
+        </div>
+        <div class="box mb-3">
+            <div class="d-flex w-100 flex-wrap">
+                <div class="col-4">
+                    <div class="d-flex w-100 h-100">
+                        <i class="bi bi-calendar  text-center fw-bold fs-14 op-06 text-white"></i>
+                        <div class="ms-2">
+                            <label class="text-white fs-13 mb-0">Date</label>
+                            <p class="fs-13 mb-0 text-dark-yellow">{{isShowToday?'Today':''}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-8">
+                    <div class="d-flex justify-content-end w-100 h-100 align-items-center">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input border-0 fs-4" [class.bg-success]="isShowToday"
+                                type="checkbox" [checked]="isShowToday" id="flexSwitchCheckChecked"
+                                (change)="onDatetoggleChange($event)">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="d-flex w-100 flex-wrap" *ngIf="!isShowToday">
+                    <!-- <input type="date"  class="form-control w-100 bg-dark text-white mt-2"
+                        (change)="onDateChange($event)" placeholder="Select date"> -->
+                        <p>Hello</p>
+                   
+                </div>
+
+            </div>
+        </div>
+        <div class="box mb-3">
+            <div class="d-flex w-100 flex-wrap">
+                <div class="col-4">
+                    <div class="d-flex w-100 h-100">
+                        <i class="bi bi-clock text-center fw-bold fs-14 op-06 text-white"></i>
+                        <div class="ms-2">
+                            <label class="text-white fs-13 mb-0">Time</label>
+                            <p class="fs-13 mb-0 text-dark-yellow">{{!isShowCurrent?selectedTime : getCurrentTime |
+                                date:'HH:mm'}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-8">
+                    <div class="d-flex justify-content-end w-100 h-100 align-items-center">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input border-0 fs-4" [class.bg-success]="isShowCurrent"
+                                type="checkbox" [checked]="isShowCurrent" id="flexSwitchCheckChecked"
+                                (change)="onTimetoggleChange($event)">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="d-flex w-100 flex-wrap" *ngIf="!isShowCurrent">
+                    <input type="time" class="form-control w-100 bg-dark text-white mt-2" placeholder="Select time">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
     <div class="accordion accordion-flush w-100 bg-payment-dark text-white" id="accordionFlushExample">
         <div class="accordion-item w-100 bg-payment-dark text-white rounded-3">
             <h2 class="accordion-header bg-payment-dark text-white" id="flush-headingOne">

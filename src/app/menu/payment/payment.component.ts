@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { CommanService } from 'src/app/shared/services/comman.service';
 import { checkoutDetails } from '../checkoutDetails';
 import { MenuService } from '../menu.service';
@@ -6,7 +6,8 @@ import { MenuService } from '../menu.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss']
+  styleUrls: ['./payment.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PaymentComponent implements OnInit {
   @Input() public checkoutItems = [];
@@ -15,8 +16,19 @@ export class PaymentComponent implements OnInit {
   public currencyUsed: string;
   public vat: number = 0;
 
+  isShowToday: boolean = true;
+  isShowCurrent: boolean = true;
+  selectedDate = new Date();
+  selectedTime: any;
+  currentTime: any;
 
-  constructor(private commonService: CommanService) {
+  viewDate: Date = new Date();
+
+  public minDate: Date = new Date();
+  // public maxDate: Date = new Date("08/27/2017");
+  public value: Date = new Date();
+
+  constructor(private commonService: CommanService, private cdr: ChangeDetectorRef) {
   }
 
   get getCurrentTime() {
@@ -36,6 +48,7 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentTime = this.commonService.currentTime;
   }
 
   addDiscount(item) {
@@ -53,6 +66,19 @@ export class PaymentComponent implements OnInit {
 
   makePayment() {
 
+  }
+
+  onDatetoggleChange(event) {
+    this.isShowToday = event.target.checked;
+  }
+
+  onDateChange(event) {
+    this.selectedDate = event.target.value;
+    this.cdr.detectChanges();
+
+  }
+  onTimetoggleChange(event) {
+    this.isShowCurrent = event.target.checked;
   }
 
 }

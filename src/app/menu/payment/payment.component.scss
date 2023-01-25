@@ -1,3 +1,5 @@
+
+
 $dark-gray-payment-bg : #1e2123;
 
 .payment {
@@ -27,5 +29,41 @@ $dark-gray-payment-bg : #1e2123;
         height: 24px;
         padding: 0px 7px 0px;
         background-color: #ff2a2a;
+    }
+
+    .box-select-time {
+        padding: 20px 14px 20px 14px;
+        border-radius: 8px;
+        // background-color: $dark-gray-payment-bg;
+        margin-top: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        // border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        // border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* From https://css.glass */
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    ::-webkit-calendar-picker-indicator::after {
+        color: #fff !important;
+    }
+
+}
+
+::ng-deep table {
+    border: none !important;
+
+    tr {
+        border: none !important;
+    }
+
+    th {
+        border: none !important;
+    }
+
+    td {
+        border: none !important;
     }
 }

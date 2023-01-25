@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   public selectedCategoryItem: any;
   public selectedOrderItem: any = [];
   public viewItem: any;
-  public isPaymentPage: boolean = false;
+  public isPaymentPage: boolean = true;
 
   constructor(private menusService: MenuService) { }
 
@@ -59,6 +59,7 @@ export class MenuComponent implements OnInit {
   selectOrderItem(item) {
     this.viewItem = item;
     this.viewItem.orderQuantity = 0;
+    document.getElementById("openStaticModalButton").click();
   }
 
   addItem(event) {

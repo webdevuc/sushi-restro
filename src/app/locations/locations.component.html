@@ -44,47 +44,20 @@
                             <div class="d-flex w-100 flex-wrap">
                                 <div class="col-md-6 footer-section">
                                     <div class="p-5">
-                                        <h2 class="animated fadeIn entry-title section-title animation-action">
-                                            Opening Times</h2>
-                                        <div *ngFor="let item of  storeDetails.timeTable"
-                                            class="d-flex w-100 mb-2 fw-600">
-                                            <div class="col-6">
-                                                {{item.day}}
-                                            </div>
-                                            <div class="col-6">
-                                                {{item.time}}
+
+                                        <div class="d-flex w-100 justify-content-center mb-3">
+                                            <div class="icons-img rounded-circle">
+                                                <img src="assets/images/placement-image.png"
+                                                    class="rounded-circle w-100 h-100" />
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex flex-wrap w-100 justify-content-center p-5">
-                                        <h2 class="animated fadeIn entry-title section-title animation-action">
-                                            Contact Us</h2>
 
-                                        <div class="col-10 text-center mx-auto">
-                                            <p>Quisque fermentum nulla vitae sapien
-                                                aliquam, et egestas sem volutpat. Sed
-                                                ullamcorper rutrum purus quis tempus.</p>
-                                        </div>
-                                        <div class="d-flex w-100 justify-content-center">
-                                            <p class="fs-4 fw-bold"> {{storeDetails.phone}}</p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex w-100 flex-wrap">
-                                <div class="col-md-6 bg-dark-gray">
-                                    <div class="p-5">
                                         <h2
-                                            class="animated fadeIn entry-title section-title animation-action text-center">
+                                            class="animated fadeIn entry-title section-title animation-action text-center mb-1">
                                             Delivery</h2>
                                         <div class="col-lg-10 text-center mx-auto">
-                                            <p>Quisque fermentum nulla vitae sapien
-                                                aliquam, et egestas sem volutpat. Sed
-                                                ullamcorper rutrum purus quis tempus.
+                                            <p class="fs-15">Quisque fermentum nulla vitae sapien
+                                                aliquam, et egestas sem volutpat.
                                             </p>
                                         </div>
 
@@ -95,7 +68,57 @@
                                                         width="75" height="75" class="m-2">
                                                 </a>
                                             </ng-container>
-                                            <!-- <img *ngIf="storeDetails.deliveroo"
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex flex-wrap w-100 justify-content-center p-5">
+                                        <div class="d-flex w-100 justify-content-center mb-3">
+                                            <div class="icons-img rounded-circle">
+                                                <img src="assets/images/placement-image.png"
+                                                    class="rounded-circle w-100 h-100" />
+                                            </div>
+                                        </div>
+                                        <h2
+                                            class="animated fadeIn entry-title section-title animation-action d-flex w-100 mb-2 justify-content-center">
+                                            Collect</h2>
+
+                                        <div class="col-lg-8 text-center mx-auto">
+                                            <p class="fs-15">Quisque fermentum nulla vitae sapien
+                                                aliquam, et egestas</p>
+                                        </div>
+
+                                        <div class="d-flex w-100 justify-content-center mt-4">
+                                            <button type="submit"
+                                                class="btn rounded-0  btn-outline-dark border border-dark border-3 w-25 fw-bold">
+                                                ORDER
+                                            </button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex w-100 flex-wrap">
+                                <div class="col-md-6">
+                                    <div class="p-5">
+                                        <h2
+                                            class="animated fadeIn entry-title section-title animation-action  text-center">
+                                            Opening Times</h2>
+                                        <div class="col-xl-8 col-lg-12 mx-auto">
+                                            <div *ngFor="let item of  storeDetails.timeTable"
+                                                class="d-flex  w-100 mb-2 fw-600">
+                                                <div class="col-6">
+                                                    {{item.day}}
+                                                </div>
+                                                <div class="col-6">
+                                                    {{item.time}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <img *ngIf="storeDetails.deliveroo"
                                                 src="assets/images/delivery-partner/deliveroo.png" alt="deliveroo"
                                                 width="75" height="75" class="m-2">
                                             <img *ngIf="storeDetails.justeat"
@@ -104,29 +127,28 @@
                                             <img *ngIf="storeDetails.ubereats"
                                                 src="assets/images/delivery-partner/uber-eats.png" alt="uber-eats"
                                                 width="75" height="75" class="m-2"> -->
-                                        </div>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="d-flex flex-wrap w-100 justify-content-center p-5">
-                                        <h2
-                                            class="animated fadeIn entry-title section-title animation-action d-flex w-100 justify-content-center">
-                                            Collect</h2>
+                                        <h2 class="animated fadeIn entry-title section-title animation-action">
+                                            Contact Us</h2>
 
-                                        <div class="col-lg-8 text-center mx-auto">
+                                        <div class="col-10 text-center mx-auto">
                                             <p>Quisque fermentum nulla vitae sapien
-                                                aliquam, et egestas sem volutpat. Sed
-                                                ullamcorper rutrum purus quis tempus.
-                                                Vestibulum vestibulum quis enim a
-                                                varius.</p>
+                                                aliquam, et egestas sem volutpat. </p>
+                                        </div>
+                                        <div class="d-flex w-100 justify-content-center">
+                                            <p class="fs-24 fw-bold text-dark"> {{storeDetails.phone}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <app-book-table></app-book-table>
+                            <!-- <app-book-table></app-book-table>
 
-                            <app-gallery-slider></app-gallery-slider>
+                            <app-gallery-slider></app-gallery-slider> -->
                         </div>
                     </div>
                 </div>

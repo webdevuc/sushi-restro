@@ -2,6 +2,7 @@ import { CommanService } from './../../services/comman.service';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, tap } from 'rxjs';
+import { AuthenticationService } from 'src/app/_services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent {
   navMenuItems: Array<any> = [];
 
   constructor(
-    private readonly _router: Router, private commanService: CommanService
+    private readonly _router: Router, private commanService: CommanService, private authService: AuthenticationService
   ) {
     this._router.events.pipe(
       filter(e => e instanceof NavigationEnd),
@@ -26,9 +27,16 @@ export class HeaderComponent {
       })
     ).subscribe()
 
+    this.authService.currentUser.subscribe(response => {
+      if (response) {
+        this.isUserLoggedIn = true;
+      } else {
+        this.isUserLoggedIn = false;
+      }
+    });
+
     this.navMenuItems = this.commanService.getNavMenus();
-    let rmmo = document.getElementById('responsive-m-menu-overlay');
-    console.log('responsive-m-menu-overlay', rmmo);
+
   }
 
   openLoginModal() {
@@ -36,7 +44,7 @@ export class HeaderComponent {
   }
 
   logOutUser() {
-
+    this.authService.logout();
   }
 
   closeMobleMenu() {

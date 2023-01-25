@@ -14,6 +14,7 @@
 // @import url('assets/index/_transitions.scss');
 // @import url('assets/index/_vertical-menu.scss');
 @import '@sweetalert2/theme-dark/dark.scss';
+
 // your-app.scss
 $baby-blue : #a3d3ff;
 $greyblue : #6fa7bc;
@@ -38,6 +39,9 @@ $off-white: #fefffe;
 }
 .bg-dark-yellow {
     background-color: #F4B72E;
+}
+.text-dark-yellow {
+    color: #F4B72E;
 }
 
 .text-dark-gray {

@@ -1,3 +1,4 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
 const components = [
   HeaderComponent,
   FooterComponent,

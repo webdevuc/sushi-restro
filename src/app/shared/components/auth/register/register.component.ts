@@ -37,11 +37,12 @@ export class RegisterComponent implements OnInit {
     this.signInUpService.registerCustomer(param).subscribe(response => {
       if (response.status == 200) {
         this.commanService.callSuccessSwal('Register Successfully!');
+        this.registerationForm.reset();
+        this.registerationForm.updateValueAndValidity();
       }
 
     }, error => {
-      console.log('error =>', error);
-      this.commanService.callErrorSwal(error.statusText);
+      this.commanService.callErrorSwal(error.message);
     });
   }
 
