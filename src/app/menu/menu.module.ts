@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SelectedOrderMenusComponent } from './selected-order-menus/selected-order-menus.component';
 import { MenuItemDetailsComponent } from './menu-item-details/menu-item-details.component';
 import { PaymentComponent } from './payment/payment.component';
+import { DatepickerModule } from 'ng2-datepicker';
 const routes: Routes = [
   {
     path: '',
@@ -27,10 +28,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes),
     SharedModule,
-    // CalendarModule.forRoot({
-    //   provide: DateAdapter,
-    //   useFactory: adapterFactory,
-    // })
+    DatepickerModule
     
   ]
 })

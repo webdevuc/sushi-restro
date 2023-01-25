@@ -39,7 +39,7 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input border-0 fs-4" [class.bg-success]="isShowToday"
                                 type="checkbox" [checked]="isShowToday" id="flexSwitchCheckChecked"
-                                (change)="onDatetoggleChange($event)">
+                                (change)="onDatetoggleChange($event);">
                         </div>
                     </div>
 
@@ -47,8 +47,8 @@
                 <div class="d-flex w-100 flex-wrap" *ngIf="!isShowToday">
                     <!-- <input type="date"  class="form-control w-100 bg-dark text-white mt-2"
                         (change)="onDateChange($event)" placeholder="Select date"> -->
-                        <p>Hello</p>
-                   
+            
+                        <ngx-datepicker [(ngModel)]="selectedDate" [isOpened]="true" [options]="options" ></ngx-datepicker>
                 </div>
 
             </div>

@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { CommanService } from 'src/app/shared/services/comman.service';
 import { checkoutDetails } from '../checkoutDetails';
-import { MenuService } from '../menu.service';
+import { DatepickerOptions } from 'ng2-datepicker';
+import { getYear } from 'date-fns';
+import locale from 'date-fns/locale/en-US';
 
 @Component({
   selector: 'app-payment',
@@ -22,12 +24,25 @@ export class PaymentComponent implements OnInit {
   selectedTime: any;
   currentTime: any;
 
-  viewDate: Date = new Date();
 
-  public minDate: Date = new Date();
-  // public maxDate: Date = new Date("08/27/2017");
-  public value: Date = new Date();
+  // options sample with default values
+  options: DatepickerOptions = {
+    minDate: new Date(),
+    minYear: getYear(new Date()) - 30, // minimum available and selectable year
+    maxYear: getYear(new Date()) + 30, // maximum available and selectable year
+    placeholder: '', // placeholder in case date model is null | undefined, example: 'Please pick a date'
+    format: 'LLLL do yyyy', // date format to display in input
+    formatTitle: 'LLLL yyyy',
+    formatDays: 'EEEEE',
+    firstCalendarDay: 0, // 0 - Sunday, 1 - Monday
+    locale: locale, // date-fns locale
+    position: 'bottom',
+    inputClass: 'datepicker-input-container', // custom input CSS class to be applied
+    calendarClass: 'datepicker-container', // custom datepicker calendar CSS class to be applied
+    scrollBarColor: '#dfe3e9', // in case you customize you theme, here you define scroll bar color
+    // keyboardEvents: true // enable keyboard events
 
+  };
   constructor(private commonService: CommanService, private cdr: ChangeDetectorRef) {
   }
 
@@ -70,6 +85,14 @@ export class PaymentComponent implements OnInit {
 
   onDatetoggleChange(event) {
     this.isShowToday = event.target.checked;
+    if (this.isShowToday) {
+      this.selectedDate = new Date();
+    }
+    // if (this.isShowToday==false) {
+    // let element = document.getElementById('datepicker')
+    // console.log(element);
+    // element.click();
+    // }
   }
 
   onDateChange(event) {

@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   public selectedCategoryItem: any;
   public selectedOrderItem: any = [];
   public viewItem: any;
-  public isPaymentPage: boolean = true;
+  public isPaymentPage: boolean = false;
 
   constructor(private menusService: MenuService) { }
 
