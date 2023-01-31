@@ -26,6 +26,7 @@
         </div>
     </div>
     <div class="card-body py-4">
+        <p>{{newItem.length}}</p>
         <div *ngIf="newItem.length; else noNewItem">
             <div class="d-flex justify-content-between w-100 mb-2" *ngFor="let item of newItem">
                 <div class="w-75 d-flex">

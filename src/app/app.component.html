@@ -2,10 +2,9 @@
 <router-outlet></router-outlet>
 <button id="openModalButton" [hidden]="true" data-keyboard="true" data-bs-toggle="modal"
     data-bs-target="#loginModal">Open Modal</button>
-<!-- <button type="button" data-bs-target="modal" id="closeModalButton" [hidden]="true" class="close" data-bs-dismiss="modal"
-    aria-label="Close">
+<button type="button" id="closeCallButton" (click)="closeModal()" [hidden]="true">
     <span aria-hidden="true">&times;</span> 
-</button> -->
+</button>
 <div class="modal" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -31,7 +30,7 @@
 
                 <div class="d-flex w-100 justify-content-center" *ngIf="isSignIn">
                     <a class="close text-white ff-Josefin fs-14 text-decoration-none text-uppercase text-center pt-2 pointer"
-                        id="closeModalButton" data-bs-dismiss="modal" aria-label="close">Skip</a>
+                        id="closeModalButton" data-bs-dismiss="modal" aria-label="close" click>Skip</a>
                 </div>
                 <!-- <a (click)="closeModal()" *ngIf="isSignIn"
                     class="w-100 close text-uppercase text-center justify-content-center d-flex align-items-center text-decoration-none pointer text-white ff-Josefin fs-14 mt-4">skip</a> -->

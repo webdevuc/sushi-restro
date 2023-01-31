@@ -91,24 +91,31 @@
                                                     <div class="d-flex w-100 flex-wrap justify-content-start"
                                                         *ngIf="menuItems.length; else noItems">
                                                         <div class="col-md-4 d-flex align-items-strech"
-                                                            *ngFor="let item of menuItems">
-                                                            <div class="card border-0  rounded-2 bg-product-card m-1 pointer"
-                                                                (click)="selectOrderItem(item)" >
+                                                            *ngFor="let menu of menuItems; trackBy: menuTrackBy">
+                                                            <div
+                                                                class="card border-0  rounded-2 bg-product-card m-1 pointer">
 
-                                                                <img src="{{item.Image}}" class="card-img-top">
+                                                                <img src="{{menu.Image}}" class="card-img-top">
 
                                                                 <div
                                                                     class="card-body text-uppercase text-center text-white">
-                                                                    <h3 class="mb-1 fs-6 pinkish-gray ">{{item.Name}}
+                                                                    <h3 class="mb-1 fs-6 pinkish-gray ">{{menu.Name}}
                                                                     </h3>
                                                                     <!-- <p class="mb-1">{{item.verient}}</p> -->
-                                                                    <p class="mb-1">{{item.Quantity}} Pieces</p>
-                                                                    <p class="mb-0">{{item.Price |
-                                                                        currency:item.Currency }}
+                                                                    <p class="mb-1">{{menu.Quantity}} Pieces</p>
+                                                                    <p class="mb-0">{{menu.Price |
+                                                                        currency:menu.Currency }}
                                                                     </p>
                                                                 </div>
-                                                                <button type="button" id="openStaticModalButton" data-keyboard="true"
-                                                                data-bs-toggle="modal" [hidden]="true"  data-bs-target="#staticBackdrop"></button>
+                                                                <div class="d-flex w-100 px-2 justify-content-center mb-2">
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-secondary rounded w-75" #selctOrderBtn
+                                                                        (click)="selectOrder(menu)">View</button>
+                                                                </div>
+                                                                <button type="button" id="openStaticModalButton"
+                                                                    data-keyboard="true" data-bs-toggle="modal"
+                                                                    [hidden]="true"
+                                                                    data-bs-target="#staticBackdrop"></button>
                                                             </div>
                                                         </div>
 
@@ -144,8 +151,8 @@
         </div>
     </div>
 
-    <div class="modal" id="staticBackdrop"  data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body p-0 position-relative">

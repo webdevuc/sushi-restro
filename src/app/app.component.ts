@@ -26,5 +26,7 @@ export class AppComponent implements OnInit {
   }
   closeModal() {
     document.getElementById("closeModalButton").click();
+    $('#loginModal').hide();
+    $('.modal-backdrop').hide();
   }
 }

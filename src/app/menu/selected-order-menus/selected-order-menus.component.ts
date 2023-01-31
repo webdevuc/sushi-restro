@@ -18,7 +18,7 @@ export class SelectedOrderMenusComponent implements OnInit {
   private geoCoder;
   public myLocation: string;
   constructor(private cd: ChangeDetectorRef, private mapsAPILoader: MapsAPILoader, private menuService: MenuService, private commonService: CommanService) {
-
+console.log('newItem', this.newItem);
     if (this.newItem) {
       this.currencyUsed = this.newItem[0].Currency;
       // this.mapsAPILoader.load().then(() => {

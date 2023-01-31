@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
 
   additems(response) {
     this.checkoutItems = response;
-    this.isPaymentPage = true;  
+    this.isPaymentPage = true;
   }
 
   getCategories() {
@@ -56,13 +56,18 @@ export class MenuComponent implements OnInit {
     this.getProductsByCategory(this.selectedCategoryItem.Id);
   }
 
-  selectOrderItem(item) {
-    this.viewItem = item;
-    this.viewItem.orderQuantity = 0;
-    document.getElementById("openStaticModalButton").click();
+  selectOrder(item) {
+    if (item) {
+      this.viewItem = item;
+      this.viewItem.orderQuantity = 0;
+
+      document.getElementById("openStaticModalButton").click();
+    }
+
   }
 
   addItem(event) {
+    console.log('event', event);
     if (this.selectedOrderItem.length) {
       this.selectedOrderItem.filter(element => {
         if (element.Id == event.Id) {
@@ -76,6 +81,10 @@ export class MenuComponent implements OnInit {
     }
 
     document.getElementById("closeModalButton").click();
+  }
+
+  menuTrackBy(index, item) {
+    return item;
   }
 
 }

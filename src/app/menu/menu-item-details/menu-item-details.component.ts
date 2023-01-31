@@ -9,6 +9,8 @@ export class MenuItemDetailsComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<string>();
   orderQuantity: number = 0
   constructor() {
+    if (this.viewItem)
+      this.viewItem.orderQuantity = 0;
   }
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class MenuItemDetailsComponent implements OnInit {
 
   onAddorder() {
     this.viewItem.totalPrice = this.viewItem.Price * this.viewItem.orderQuantity;
+
     this.newItemEvent.emit(this.viewItem);
   }
 

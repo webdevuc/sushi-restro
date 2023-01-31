@@ -17,12 +17,16 @@ export class PaymentComponent implements OnInit {
   public tips: Array<number> = [5, 10, 15, 20];
   public currencyUsed: string;
   public vat: number = 0;
+  tipAmout: number = 0;
 
   isShowToday: boolean = true;
   isShowCurrent: boolean = true;
   selectedDate = new Date();
   selectedTime: any;
   currentTime: any;
+  notes: string;
+
+  displayErrorMessage: string;
 
 
   // options sample with default values
@@ -54,8 +58,8 @@ export class PaymentComponent implements OnInit {
     return this.checkoutItems.map(t => t.totalPrice).reduce((acc, value) => Number(acc) + Number(value), 0);
   }
 
-  get total() {
-    let totalaMount = this.subTotal + this.vat;
+  gettotal() {
+    let totalaMount = this.subTotal + this.vat + this.tipAmout;
     return totalaMount
   }
   get CurrencyUse() {
@@ -71,7 +75,13 @@ export class PaymentComponent implements OnInit {
   }
 
   addTip(item) {
-    this.checkoutDetails.tip = item;
+    this.tipAmout = (item / 100) * this.subTotal;
+    this.gettotal();
+  }
+
+  cancelTip() {
+    this.tipAmout = 0;
+    this.gettotal();
   }
 
   getSubtotal(items?: any) {
@@ -80,8 +90,18 @@ export class PaymentComponent implements OnInit {
   }
 
   makePayment() {
-
+    let userDetails = localStorage.getItem('currentUser');
+    let user = JSON.parse(userDetails);
+    if (user) {
+      let params = this.getParamsRequired(user.userData);
+      this.callPayment(params);
+    } else {
+      this.displayErrorMessage = 'Please login into your account.';
+      this.clearAlert();
+    }
   }
+
+  callPayment(params) {}
 
   onDatetoggleChange(event) {
     this.isShowToday = event.target.checked;
@@ -102,6 +122,45 @@ export class PaymentComponent implements OnInit {
   }
   onTimetoggleChange(event) {
     this.isShowCurrent = event.target.checked;
+  }
+
+  getParamsRequired(userDetails) {
+
+    let data = userDetails;
+
+    let orderdata = [];
+    this.checkoutItems.forEach(element => {
+      let param = {
+        ProductId: element.Id,
+        Price: element.totalPrice,
+        Quantity: element.orderQuantity
+      }
+      orderdata.push(param);
+    });
+    let params = {
+      SubTotal: this.subTotal,
+      Vat: this.vat,
+      Tip: this.tipAmout.toFixed(2),
+      GrandTotal: this.gettotal(),
+      FirstName: data['FirstName'],
+      LastName: data['SureName'],
+      Address: "string",
+      Email: data['Email'],
+      Mobile: data['TelePhoneNumber'],
+      TimingStatus: 0,
+      StoreId: 0,
+      LaterDateTime: "string",
+      Notes: this.notes,
+      OrderItems: orderdata
+    }
+
+    return params
+  }
+
+  clearAlert() {
+    setTimeout(() => {
+      this.displayErrorMessage = null;
+    }, 1000);
   }
 
 }
