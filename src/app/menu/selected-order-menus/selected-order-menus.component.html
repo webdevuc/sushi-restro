@@ -28,13 +28,15 @@
     <div class="card-body py-4">
         <div *ngIf="newItem.length; else noNewItem">
             <div class="d-flex justify-content-between w-100 mb-2" *ngFor="let item of newItem">
-                <div class="w-75 d-flex">
-                    <span class="text-muted fs-14 pe-3">{{item?.orderQuantity==0?1:item?.orderQuantity}}x</span>
-                    <span class="pinkish-gray fs-14 d-flex text-center">{{item?.Name}}</span>
-                </div>
-                <div class="text-white fs-14">
-                    {{item?.totalPrice| currency:item?.Currency}}
-                </div>
+                <a class="text-decoration-none w-100 d-flex pointer" (click)="reopenMenuItem(item)">
+                    <div class="w-75 d-flex">
+                        <span class="text-muted fs-14 pe-3">{{item?.orderQuantity==0?1:item?.orderQuantity}}x</span>
+                        <span class="pinkish-gray fs-14 d-flex text-center">{{item?.Name}}</span>
+                    </div>
+                    <div class="text-white fs-14">
+                        {{item?.totalPrice| currency:item?.Currency}}
+                    </div>
+                </a>
             </div>
 
 
@@ -53,5 +55,3 @@
     </div>
 
 </div>
-
-<agm-map style="height: 300px;" hidden></agm-map>

@@ -1,6 +1,6 @@
 import { AgmMap, MapsAPILoader } from '@agm/core';
 
-import { ChangeDetectorRef, Component, NgZone, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit, SimpleChanges, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Input } from '@angular/core';
 import { CommanService } from 'src/app/shared/services/comman.service';
 import { MenuService } from '../menu.service';
@@ -13,11 +13,10 @@ export class SelectedOrderMenusComponent implements OnInit {
   @ViewChild(AgmMap, { static: true }) public agmMap: AgmMap;
   @Input() newItem: any = [];
   @Input() storeDetails: any;
+  @Output() openMenuItem = new EventEmitter<string>();
   menuItems: Array<any> = [];
   public currencyUsed: string;
   public totalCalculatedPrice: number = 0;
-  private geoCoder;
-  public myLocation: string;
   constructor(private cd: ChangeDetectorRef, private mapsAPILoader: MapsAPILoader, private menuService: MenuService, private commonService: CommanService) {
     if (this.newItem) {
       this.currencyUsed = this.newItem[0]?.Currency;
@@ -44,35 +43,12 @@ export class SelectedOrderMenusComponent implements OnInit {
     this.cd.detectChanges();
   }
 
-  getLocation() {
-
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        let latitude = position.coords.latitude;
-        let longitude = position.coords.longitude;
-
-        this.getAddress(latitude, longitude);
-      });
-    }
-
-  }
-
-  getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
-      if (status === 'OK') {
-        if (results[0]) {
-          this.myLocation = results[0].address_components[2].long_name;
-        } else {
-          window.alert('No results found');
-        }
-      } else {
-        window.alert('Geocoder failed due to: ' + status);
-      }
-
-    });
-  }
 
   checkoutWithItems() {
     this.menuService.subjectCheckoutItems.next(this.newItem);
+  }
+
+  reopenMenuItem(menuItem) {
+    this.openMenuItem.emit(menuItem);
   }
 }

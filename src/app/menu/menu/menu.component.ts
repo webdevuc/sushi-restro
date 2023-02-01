@@ -24,6 +24,9 @@ export class MenuComponent implements OnInit {
   publishItems = [];
 
   private stepper: Stepper;
+
+  selectedTab = 1;
+
   constructor(private menusService: MenuService) { }
 
   ngOnInit(): void {
@@ -50,13 +53,13 @@ export class MenuComponent implements OnInit {
   onChangeStore(item) {
     this.selectedStore = item;
     this.getCategories(item.Id);
-    this.next();
+    this.selectedTab = 2;
   }
 
 
   additems(response) {
     this.checkoutItems = response;
-    this.next();
+    this.selectedTab = 3;
   }
 
   getCategories(id) {
@@ -126,4 +129,8 @@ export class MenuComponent implements OnInit {
     this.stepper.next();
   }
 
+
+  openMenuItem(event) {
+    this.selectOrder(event);
+  }
 }
