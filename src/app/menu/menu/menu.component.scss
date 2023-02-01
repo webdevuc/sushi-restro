@@ -98,3 +98,8 @@
     background: transparent;
     color: #fff;
 }
+
+:ng-deep .form-select:focus {
+    border: none !important;
+    box-shadow: none !important;
+}

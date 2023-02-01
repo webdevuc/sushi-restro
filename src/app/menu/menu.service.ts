@@ -12,6 +12,9 @@ export class MenuService {
   public product: string = 'product';
   constructor(private api: HttpService) { }
 
+  getStores() {
+    return this.api.getData('/store/get-stores');
+  }
   getCategories() {
     return this.api.getData(this.category + '/get-all-category');
   }

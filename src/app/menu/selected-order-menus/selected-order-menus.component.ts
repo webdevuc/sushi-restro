@@ -11,30 +11,22 @@ import { MenuService } from '../menu.service';
 })
 export class SelectedOrderMenusComponent implements OnInit {
   @ViewChild(AgmMap, { static: true }) public agmMap: AgmMap;
-  @Input() newItem: any = null;
+  @Input() newItem: any = [];
+  @Input() storeDetails: any;
   menuItems: Array<any> = [];
   public currencyUsed: string;
   public totalCalculatedPrice: number = 0;
   private geoCoder;
   public myLocation: string;
   constructor(private cd: ChangeDetectorRef, private mapsAPILoader: MapsAPILoader, private menuService: MenuService, private commonService: CommanService) {
-console.log('newItem', this.newItem);
     if (this.newItem) {
-      this.currencyUsed = this.newItem[0].Currency;
-      // this.mapsAPILoader.load().then(() => {
-      //   this.getLocation();
-      //   this.geoCoder = new google.maps.Geocoder();
-      // });
+      this.currencyUsed = this.newItem[0]?.Currency;
     }
   }
 
 
 
   ngOnInit(): void {
-    // this.mapsAPILoader.load().then(() => {
-    //   this.getLocation();
-    //   this.geoCoder = new google.maps.Geocoder();
-    // });
   }
 
   get getCurrentTime() {
@@ -42,6 +34,7 @@ console.log('newItem', this.newItem);
   }
 
   ngDoCheck() {
+    this.currencyUsed = this.newItem[0]?.Currency;
     this.getTotalPrice();
   }
 

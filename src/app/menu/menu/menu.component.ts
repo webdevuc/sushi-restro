@@ -2,6 +2,7 @@ import { filter } from 'rxjs';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuService } from '../menu.service';
 import { checkoutDetails } from '../checkoutDetails';
+import Stepper from 'bs-stepper';
 
 @Component({
   selector: 'app-menu',
@@ -18,23 +19,47 @@ export class MenuComponent implements OnInit {
   public viewItem: any;
   public isPaymentPage: boolean = false;
 
+  public storesList: Array<any> = [];
+  public selectedStore: any;
+  publishItems = [];
+
+  private stepper: Stepper;
   constructor(private menusService: MenuService) { }
 
   ngOnInit(): void {
-    this.getCategories();
     this.menusService.subjectCheckoutItems.subscribe(response => {
       if (response) {
         this.additems(response);
       }
+    });
+    this.stepper = new Stepper(document.querySelector('#stepper1'), {
+      linear: false,
+      animation: true
+    });
+    this.getStoresList();
+  }
+
+  getStoresList() {
+    this.menusService.getStores().subscribe(response => {
+      if (response.status == 200) {
+        this.storesList = response.data
+      }
     })
   }
 
-  additems(response) {
-    this.checkoutItems = response;
-    this.isPaymentPage = true;
+  onChangeStore(item) {
+    this.selectedStore = item;
+    this.getCategories(item.Id);
+    this.next();
   }
 
-  getCategories() {
+
+  additems(response) {
+    this.checkoutItems = response;
+    this.next();
+  }
+
+  getCategories(id) {
     this.menusService.getCategories().subscribe(response => {
       if (response.status == 200) {
         this.categoryList = response.data;
@@ -67,11 +92,12 @@ export class MenuComponent implements OnInit {
   }
 
   addItem(event) {
-    console.log('event', event);
     if (this.selectedOrderItem.length) {
-      this.selectedOrderItem.filter(element => {
-        if (element.Id == event.Id) {
-          element.orderQuantity = event.orderQuantity;
+      this.selectedOrderItem.filter((element, index) => {
+        console.log(element.Id, event.Id)
+        if (element.Id === event.Id) {
+          delete this.selectedOrderItem[index];
+          this.selectedOrderItem.push(event);
         } else {
           this.selectedOrderItem.push(event);
         }
@@ -81,10 +107,23 @@ export class MenuComponent implements OnInit {
     }
 
     document.getElementById("closeModalButton").click();
+
+    let updatedArray = this.selectedOrderItem.filter((item,
+      index) => this.selectedOrderItem.indexOf(item) === index);
+    this.publishItemsArray(updatedArray);
+  }
+
+  publishItemsArray(newArray) {
+    console.log(newArray);
+    this.publishItems = newArray;
   }
 
   menuTrackBy(index, item) {
     return item;
+  }
+
+  next() {
+    this.stepper.next();
   }
 
 }

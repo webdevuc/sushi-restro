@@ -9,7 +9,7 @@
 
                 <p class="text-uppercase mb-0">location</p>
                 <p class="text-uppercase mb-0 text-white fw-bold">
-                    {{myLocation?myLocation:'Not Found'}}
+                    {{storeDetails?storeDetails.StoreName:'Not Found'}}
                 </p>
 
             </div>
@@ -26,7 +26,6 @@
         </div>
     </div>
     <div class="card-body py-4">
-        <p>{{newItem.length}}</p>
         <div *ngIf="newItem.length; else noNewItem">
             <div class="d-flex justify-content-between w-100 mb-2" *ngFor="let item of newItem">
                 <div class="w-75 d-flex">
@@ -34,7 +33,7 @@
                     <span class="pinkish-gray fs-14 d-flex text-center">{{item?.Name}}</span>
                 </div>
                 <div class="text-white fs-14">
-                    {{item.totalPrice| currency:item.Currency}}
+                    {{item?.totalPrice| currency:item?.Currency}}
                 </div>
             </div>
 

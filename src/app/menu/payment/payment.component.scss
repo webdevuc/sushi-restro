@@ -34,12 +34,23 @@ $dark-gray-payment-bg : #1e2123;
         border-radius: 8px;
         // background-color: $dark-gray-payment-bg;
         margin-top: 8px;
-        background: rgba(255, 255, 255, 0.1);
+
         // border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+        // border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+
+    .selectedBoxTime {
+        background-color: #000;
+        border: 1px solid;
+    }
+
+    .notSelectedBoxTime {
+        background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        // border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     /* From https://css.glass */
@@ -116,7 +127,9 @@ $dark-gray-payment-bg : #1e2123;
     }
 }
 
-.ngx-timepicker-control__input, .ngx-timepicker-control, .ngx-timepicker-control--active {
+.ngx-timepicker-control__input,
+.ngx-timepicker-control,
+.ngx-timepicker-control--active {
     background-color: transparent !important;
     border: none !important;
 
@@ -141,7 +154,8 @@ $dark-gray-payment-bg : #1e2123;
     /* color: #fff; */
 }
 
-.period-control__button, .ngx-timepicker-control--active {
+.period-control__button,
+.ngx-timepicker-control--active {
     border: none !important;
 
     &::after {

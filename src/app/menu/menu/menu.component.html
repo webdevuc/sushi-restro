@@ -68,80 +68,137 @@
                             </div>
                             <div class="bg-dark-gray-menu">
                                 <div class="container py-5">
-                                    <div>
-                                        <div class="row">
-                                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-12">
-                                                <ul class="categories-list">
-                                                    <li class="list-unstyled d-flex w-100 h-100 justify-content-start"
-                                                        *ngFor="let item of categoryList; let i = index;"
-                                                        (click)="selectedCategory(item, i)">
-                                                        <a class="text-decoration-none pointer"
-                                                            [ngClass]="selectedCategoryItem.Id==item.Id?'text-white':''">{{item.Name}}</a>
-                                                        <div class="Line-4 my-auto ms-2 me-0"
-                                                            *ngIf="selectedCategoryItem.Id==item.Id"></div>
-                                                    </li>
-
-
-                                                </ul>
+                                    <div id="stepper1" class="bs-stepper">
+                                        <div class="bs-stepper-header">
+                                            <div class="step" data-target="#test-l-1">
+                                                <button class="step-trigger">
+                                                    <!-- <span class="bs-stepper-circle">1</span> -->
+                                                    <span class="bs-stepper-label">Select Store</span>
+                                                </button>
                                             </div>
-                                            <ng-container *ngIf="!isPaymentPage; else paymentContainer">
-                                                <div class="col-lg-6">
-                                                    <h5 class="text-uppercase mb-0 pinkish-gray">
-                                                        {{selectedCategoryItem?.Name}}</h5>
-                                                    <div class="d-flex w-100 flex-wrap justify-content-start"
-                                                        *ngIf="menuItems.length; else noItems">
-                                                        <div class="col-md-4 d-flex align-items-strech"
-                                                            *ngFor="let menu of menuItems; trackBy: menuTrackBy">
-                                                            <div
-                                                                class="card border-0  rounded-2 bg-product-card m-1 pointer">
+                                            <div class="line"></div>
+                                            <div class="step" data-target="#test-l-2">
+                                                <button class="step-trigger">
+                                                    <!-- <span class="bs-stepper-circle">2</span> -->
+                                                    <span class="bs-stepper-label">Confirm</span>
+                                                </button>
+                                            </div>
+                                            <div class="line"></div>
+                                            <div class="step" data-target="#test-l-3">
+                                                <button class="step-trigger">
+                                                    <!-- <span class="bs-stepper-circle">3</span> -->
+                                                    <span class="bs-stepper-label">Checkout</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="bs-stepper-content">
 
-                                                                <img src="{{menu.Image}}" class="card-img-top">
+                                            <div id="test-l-1" class="content">
+                                                <div class="col-md-6 col-lg-3 mx-auto mb-3">
+                                                    <ng-container *ngFor="let item of storesList">
+                                                        <button class="btn btn-outline-light d-flex mb-1 w-100"
+                                                            (click)="onChangeStore(item)">
+                                                            {{item.StoreName}}</button>
+                                                    </ng-container>
 
-                                                                <div
-                                                                    class="card-body text-uppercase text-center text-white">
-                                                                    <h3 class="mb-1 fs-6 pinkish-gray ">{{menu.Name}}
-                                                                    </h3>
-                                                                    <!-- <p class="mb-1">{{item.verient}}</p> -->
-                                                                    <p class="mb-1">{{menu.Quantity}} Pieces</p>
-                                                                    <p class="mb-0">{{menu.Price |
-                                                                        currency:menu.Currency }}
-                                                                    </p>
-                                                                </div>
-                                                                <div class="d-flex w-100 px-2 justify-content-center mb-2">
-                                                                    <button type="button"
-                                                                        class="btn btn-outline-secondary rounded w-75" #selctOrderBtn
-                                                                        (click)="selectOrder(menu)">View</button>
-                                                                </div>
-                                                                <button type="button" id="openStaticModalButton"
-                                                                    data-keyboard="true" data-bs-toggle="modal"
-                                                                    [hidden]="true"
-                                                                    data-bs-target="#staticBackdrop"></button>
-                                                            </div>
+                                                </div>
+
+                                            </div>
+                                            <div id="test-l-2" class="content">
+
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-12">
+                                                            <ul class="categories-list">
+                                                                <li class="list-unstyled d-flex w-100 h-100 justify-content-start"
+                                                                    *ngFor="let item of categoryList; let i = index;"
+                                                                    (click)="selectedCategory(item, i)">
+                                                                    <a class="text-decoration-none pointer"
+                                                                        [ngClass]="selectedCategoryItem.Id==item.Id?'text-white':''">{{item.Name}}</a>
+                                                                    <div class="Line-4 my-auto ms-2 me-0"
+                                                                        *ngIf="selectedCategoryItem.Id==item.Id"></div>
+                                                                </li>
+
+
+                                                            </ul>
                                                         </div>
+                                                        <ng-container>
+                                                            <div class="col-lg-7">
+                                                                <h5 class="text-uppercase mb-0 pinkish-gray">
+                                                                    {{selectedCategoryItem?.Name}}</h5>
+                                                                <div class="d-flex w-100 flex-wrap justify-content-start"
+                                                                    *ngIf="menuItems.length; else noItems">
+                                                                    <div class="col-md-4 d-flex align-items-strech"
+                                                                        *ngFor="let menu of menuItems; trackBy: menuTrackBy">
+                                                                        <div
+                                                                            class="card border-0  rounded-2 bg-product-card m-1 pointer">
 
+                                                                            <img src="{{menu.Image}}"
+                                                                                class="card-img-top">
+
+                                                                            <div
+                                                                                class="card-body text-uppercase text-center text-white">
+                                                                                <h3 class="mb-1 fs-6 pinkish-gray ">
+                                                                                    {{menu.Name}}
+                                                                                </h3>
+                                                                                <!-- <p class="mb-1">{{item.verient}}</p> -->
+                                                                                <p class="mb-1">{{menu.Quantity}} Pieces
+                                                                                </p>
+                                                                                <p class="mb-0">{{menu.Price |
+                                                                                    currency:menu.Currency }}
+                                                                                </p>
+                                                                            </div>
+                                                                            <div
+                                                                                class="d-flex w-100 px-2 justify-content-center mb-2">
+                                                                                <button type="button"
+                                                                                    class="btn btn-outline-secondary rounded w-75"
+                                                                                    #selctOrderBtn
+                                                                                    (click)="selectOrder(menu)">View</button>
+                                                                            </div>
+                                                                            <button type="button"
+                                                                                id="openStaticModalButton"
+                                                                                data-keyboard="true"
+                                                                                data-bs-toggle="modal" [hidden]="true"
+                                                                                data-bs-target="#staticBackdrop"></button>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <ng-template #noItems>
+                                                                    <p
+                                                                        class="text-muted d-flex w-100  justify-content-center">
+                                                                        No
+                                                                        Items
+                                                                        available</p>
+
+                                                                </ng-template>
+
+                                                            </div>
+                                                            <div class="col-lg-3 py-2">
+
+                                                                <app-selected-order-menus [newItem]="publishItems"
+                                                                    [storeDetails]="selectedStore"></app-selected-order-menus>
+
+                                                            </div>
+                                                        </ng-container>
                                                     </div>
-                                                    <ng-template #noItems>
-                                                        <p class="text-muted d-flex w-100  justify-content-center"> No
-                                                            Items
-                                                            available</p>
-
-                                                    </ng-template>
-
                                                 </div>
-                                                <div class="col-lg-3 py-2">
-                                                    <app-selected-order-menus
-                                                        [newItem]="selectedOrderItem"></app-selected-order-menus>
-
+                                            </div>
+                                            <div id="test-l-3" class="content text-center">
+                                                <div class="col-lg-3 col-md-6">
+                                                    <ng-container *ngIf="checkoutItems">
+                                                        <app-payment [checkoutItems]="checkoutItems"
+                                                            [storeDetails]="selectedStore"></app-payment>
+                                                    </ng-container>
                                                 </div>
-                                            </ng-container>
+                                            </div>
 
-                                            <ng-template #paymentContainer>
-                                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 ">
-                                                    <app-payment [checkoutItems]="checkoutItems"></app-payment>
-                                                </div>
-                                            </ng-template>
                                         </div>
                                     </div>
+
+
+
+
                                 </div>
                             </div>
                         </div>

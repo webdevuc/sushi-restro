@@ -23,6 +23,7 @@
     "@types/jquery.cookie": "^1.4.32",
     "angular-lightgallery": "^1.0.8",
     "bootstrap": "^5.2.3",
+    "bs-stepper": "^1.7.0",
     "jspanel4": "^4.14.1",
     "lightgallery": "^2.4.0",
     "ng2-datepicker": "^12.0.0",

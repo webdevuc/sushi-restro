@@ -13,18 +13,21 @@ import locale from 'date-fns/locale/en-US';
 })
 export class PaymentComponent implements OnInit {
   @Input() public checkoutItems = [];
+  @Input() public storeDetails: any;
   public checkoutDetails: checkoutDetails | undefined;
   public tips: Array<number> = [5, 10, 15, 20];
   public currencyUsed: string;
   public vat: number = 0;
   tipAmout: number = 0;
 
-  isShowToday: boolean = true;
-  isShowCurrent: boolean = true;
+  isShowToday: boolean = false;
+  isShowCurrent: boolean = false;
   selectedDate = new Date();
   selectedTime: any;
   currentTime: any;
   notes: string;
+
+  public selectedTimeFormat = 'asap';
 
   displayErrorMessage: string;
 
@@ -101,7 +104,7 @@ export class PaymentComponent implements OnInit {
     }
   }
 
-  callPayment(params) {}
+  callPayment(params) { }
 
   onDatetoggleChange(event) {
     this.isShowToday = event.target.checked;
@@ -118,9 +121,13 @@ export class PaymentComponent implements OnInit {
   onDateChange(event) {
     this.selectedDate = event.target.value;
     this.cdr.detectChanges();
-
   }
   onTimetoggleChange(event) {
+    if (event.target.checked) {
+      var today = new Date();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      this.selectedTime = time;
+    }
     this.isShowCurrent = event.target.checked;
   }
 
