@@ -23,19 +23,20 @@ export class SelectedOrderMenusComponent implements OnInit {
     }
   }
 
-
+  ngOnChanges() {
+    this.currencyUsed = this.newItem[0]?.Currency;
+    this.getTotalPrice();
+  }
 
   ngOnInit(): void {
   }
+
 
   get getCurrentTime() {
     return this.commonService.currentTime;
   }
 
-  ngDoCheck() {
-    this.currencyUsed = this.newItem[0]?.Currency;
-    this.getTotalPrice();
-  }
+
 
   public getTotalPrice() {
     this.totalCalculatedPrice = 0;
