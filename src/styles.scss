@@ -96,6 +96,30 @@ $off-white: #fefffe;
     color: #fff;
 }
 
+.outline-btn-secondary {
+    transition: color 0.3s, border-color 0.3s !important;
+    border: 2px solid #000 !important;
+    color: #000;
+    cursor: pointer !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    margin-right: 5px;
+    outline: 0 none;
+    padding: 10px !important;
+    position: relative;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    background: none;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.outline-btn-secondary:hover {
+    background: #000;
+    color: #fff;
+}
+
 .modal-dialog {
     width: 375px !important;
     height: 663px;

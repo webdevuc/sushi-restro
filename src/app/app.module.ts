@@ -10,6 +10,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SharedModule } from './shared/shared.module';
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomeComponent,
     AboutUsComponent,
+    ForgotPasswordComponent
 
   ],
   imports: [

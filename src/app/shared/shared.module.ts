@@ -12,6 +12,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CodeInputModule } from 'angular-code-input';
 
 const components = [
   HeaderComponent,
@@ -25,6 +26,7 @@ const modules = [
   RouterModule,
   HttpClientModule,
   ReactiveFormsModule,
+  CodeInputModule,
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyDkma2m0XOpSD7tMiqxY1eJJiH9YmsmcuQ',
     libraries: ['places']

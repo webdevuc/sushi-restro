@@ -9,6 +9,8 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class HttpService {
   public host = `${environment.baseUrl}` // host base url
+  public privateHostUrl = `${environment.privateBaseUrl}` // host base url
+  // public privateHostUrl = `https://backend.thesushico.co.uk/private/api/` // host base url
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +33,13 @@ export class HttpService {
 
   postData(url: string, postData: any): Observable<any> {
     return this.http.post<any>(this.host + url, postData, this.getOptionsWithBody()).pipe(map(
+      response => {
+        return response
+      }));
+  }
+
+  postPrivateData(url: string, postData: any): Observable<any> {
+    return this.http.post<any>(this.privateHostUrl + url, postData, this.getOptionsWithBody()).pipe(map(
       response => {
         return response
       }));

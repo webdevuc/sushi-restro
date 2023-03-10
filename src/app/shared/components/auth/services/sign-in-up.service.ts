@@ -19,4 +19,16 @@ export class SignInUpService {
   public loginCustomer(data) {
     return this.httService.postData(this.login, data);
   }
+
+  public forgotPasswordSendMail(data) {
+    return this.httService.postData(`registration/forget-password`, data)
+  }
+
+  public verifyCode(data) {
+    return this.httService.postData(`registration/check-verification-code`, data)
+  }
+
+  public resetPassword(data) {
+    return this.httService.postPrivateData(`registration/reset-password`, data)
+  }
 }
