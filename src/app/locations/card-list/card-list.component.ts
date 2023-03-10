@@ -20,5 +20,9 @@ export class CardListComponent implements OnInit {
   }
 
 
+  getInitialFromString(place) {
+    return place.charAt(0).toUpperCase();
+  }
+
 
 }

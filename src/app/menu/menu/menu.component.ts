@@ -35,11 +35,12 @@ export class MenuComponent implements OnInit {
         this.additems(response);
       }
     });
-    this.stepper = new Stepper(document.querySelector('#stepper1'), {
-      linear: false,
-      animation: true
-    });
-    this.getStoresList();
+    // this.stepper = new Stepper(document.querySelector('#stepper1'), {
+    //   linear: false,
+    //   animation: true
+    // });
+    // this.getStoresList();
+    this.getCategories(null);
   }
 
   getStoresList() {
@@ -59,7 +60,8 @@ export class MenuComponent implements OnInit {
 
   additems(response) {
     this.checkoutItems = response;
-    this.selectedTab = 3;
+    this.isPaymentPage = true;
+    // this.selectedTab = 3;
   }
 
   getCategories(id) {

@@ -1,4 +1,4 @@
-<div class="mtheme-modular-column column-parallax bg-dark-gray" data-stellar-background-ratio="0.5"
+<div class="mtheme-modular-column column-parallax" data-stellar-background-ratio="0.5"
     style="padding-bottom:112px;padding-top:112px; ">
     <div class="mtheme-supercell clearfix  boxed-column">
         <div class="column-setter first-column span12">
@@ -7,7 +7,7 @@
                     data-width="12">
                     <div class="mtheme-cell-inner">
                         <div class="d-flex w-100 flex-wrap justify-content-center">
-                            <div class="card shadow-sm col-xl-8 col-lg-10 col-md-10 mx-auto border rounded-4">
+                            <div class="card shadow col-xl-8 col-lg-10 col-md-10 mx-auto border rounded-4">
                                 <div class="card-body">
                                     <h2 class="food-main-title"></h2>
                                     <ul class="food-list  food-column-one clearfix">
@@ -15,16 +15,20 @@
                                             class="food-element food-element-id-11226 food-image-active food-column-1 clearfix food-element-order-1"
                                             data-food="food-11226">
                                             <div class="food-item-wrap-outer">
-                                                <div class="food-item-image bg-food-image rounded-circle"><img
+                                                <div class="food-item-image bg-food-image rounded-circle">
+                                                    <!-- <img
                                                         src="https://imaginem.io/cinnamon/wp-content/uploads/sites/13/2017/03/plate3-750x750.jpg"
-                                                        alt="food-item" class="d-none"></div>
+                                                        alt="food-item" class="d-none"> -->
+                                                    <span class="d-flex w-100 h-100 align-items-center justify-content-center text-white fw-bold fs-30">{{getInitialFromString(item.place)}}</span>
+                                                </div>
                                                 <div class="food-item-wrap ">
                                                     <div class="food-item-header clearfix">
                                                         <h3 class="food-item-title fs-18">{{item.place}}</h3>
                                                         <div class="food-item-variations-wrap clearfix">
                                                             <div class="d-flex justify-content-end">
-                                                                <a  (click)="redirectToDetails(item.id)" 
-                                                                    class="text-decoration-none text-dark pointer">FULL INFO
+                                                                <a (click)="redirectToDetails(item.id)"
+                                                                    class="text-decoration-none text-dark pointer">FULL
+                                                                    INFO
                                                                     <i class="bi bi-chevron-right text-success fw-bold">
                                                                     </i>
                                                                 </a>

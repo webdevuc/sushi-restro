@@ -70,7 +70,7 @@
                                 <div class="container py-5">
 
                              
-                                    <nav>
+                                    <!-- <nav>
                                         <div class="nav nav-tabs mb-3 w-100 justify-content-center" id="nav-tab" role="tablist">
                                             <a (click)="selectedTab = 1" class="nav-link dropdown-toggle"
                                                 [ngClass]="selectedTab == 1?'active':''" data-bs-toggle="dropdown"
@@ -91,12 +91,12 @@
                                                 [disabled]="!checkoutItems">Checkout</button>
 
                                         </div>
-                                    </nav>
+                                    </nav> -->
 
 
-                                    <div class="tab-content" [hidden]="(selectedTab != 1 && selectedTab != 2)">
-                                        <div *ngIf="selectedStore;else noStore">
-                                            <div class="row">
+                                    <!-- <div class="tab-content" [hidden]="(selectedTab != 1 && selectedTab != 2)"> -->
+                                        <!-- <div *ngIf="selectedStore;else noStore"> -->
+                                            <div class="row" *ngIf="!isPaymentPage">
                                                 <div class="col-xl-2 col-lg-2 col-md-3 col-sm-12">
                                                     <ul class="categories-list">
                                                         <li class="list-unstyled d-flex w-100 h-100 justify-content-start"
@@ -160,7 +160,7 @@
                                                         </ng-template>
 
                                                     </div>
-                                                    <div class="col-lg-3 py-2">
+                                                    <div class="col-lg-3 py-2" >
 
                                                         <app-selected-order-menus [newItem]="publishItems"
                                                             [storeDetails]="selectedStore" (openMenuItem)="openMenuItem($event)"></app-selected-order-menus>
@@ -168,78 +168,23 @@
                                                     </div>
                                                 </ng-container>
                                             </div>
-                                        </div>
+                                        <!-- </div>
                                         <ng-template #noStore>
                                             <p class="text-center text-light"> Please select store </p>
-                                        </ng-template>
+                                        </ng-template> -->
 
-                                    </div>
-                                    <div class="tab-content" [hidden]="selectedTab !== 3">
+                                    <!-- </div> -->
+                                    <!-- <div class="tab-content" [hidden]="selectedTab !== 3"> -->
 
-                                        <div class="col-lg-4 col-md-6">
+                                        <div class="col-lg-4 col-md-6" *ngIf="isPaymentPage">
 
                                             <ng-container *ngIf="checkoutItems">
                                                 <app-payment [checkoutItems]="checkoutItems"
                                                     [storeDetails]="selectedStore"></app-payment>
                                             </ng-container>
                                         </div>
-                                    </div>
-                                    <!-- stepper  -->
-                                    <div id="stepper1" class="bs-stepper d-none">
-                                        <div class="bs-stepper-header">
-                                            <div class="step" data-target="#test-l-1">
-                                                <button class="step-trigger">
-                                                    <!-- <span class="bs-stepper-circle">1</span> -->
-                                                    <span class="bs-stepper-label">Select Store</span>
-                                                </button>
-                                            </div>
-                                            <div class="line"></div>
-                                            <div class="step" data-target="#test-l-2">
-                                                <button class="step-trigger">
-                                                    <!-- <span class="bs-stepper-circle">2</span> -->
-                                                    <span class="bs-stepper-label">Confirm</span>
-                                                </button>
-                                            </div>
-                                            <div class="line"></div>
-                                            <div class="step" data-target="#test-l-3">
-                                                <button class="step-trigger">
-                                                    <!-- <span class="bs-stepper-circle">3</span> -->
-                                                    <span class="bs-stepper-label">Checkout</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="bs-stepper-content">
-
-                                            <div id="test-l-1" class="content">
-                                                <div class="col-md-6 col-lg-3 mx-auto mb-3">
-                                                    <ng-container *ngFor="let item of storesList">
-                                                        <button class="btn btn-outline-light d-flex mb-1 w-100"
-                                                            (click)="onChangeStore(item)">
-                                                            {{item.StoreName}}</button>
-                                                    </ng-container>
-
-                                                </div>
-
-                                            </div>
-                                            <div id="test-l-2" class="content">
-
-                                                <div>
-
-                                                </div>
-                                            </div>
-                                            <div id="test-l-3" class="content text-center">
-                                                <div class="col-lg-3 col-md-6">
-                                                    <ng-container *ngIf="checkoutItems">
-                                                        <app-payment [checkoutItems]="checkoutItems"
-                                                            [storeDetails]="selectedStore"></app-payment>
-                                                    </ng-container>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- stepper end -->
-
+                                    <!-- </div> -->
+                                  
 
 
                                 </div>
