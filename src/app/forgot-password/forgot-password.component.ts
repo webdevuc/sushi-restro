@@ -19,6 +19,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   public showNewPass: boolean = false;
   public showConfirmPass: boolean = false;
+  private email: any
   constructor(
     private signInUpService: SignInUpService,
     private formBuilder: FormBuilder,
@@ -58,10 +59,12 @@ export class ForgotPasswordComponent implements OnInit {
       return
     }
     if (this.isSubmited && this.sendEmailForm.valid) {
+      this.email = this.sendEmailForm.value.Email
       this.signInUpService.forgotPasswordSendMail(this.sendEmailForm.value)
         .subscribe(response => {
           if (response.status == 200) {
             this.commanService.callSuccessSwal(response.message);
+            this.sendEmailForm.reset();
             this.snedEmail = true
             this.isSubmited = false
           } else {
@@ -75,7 +78,7 @@ export class ForgotPasswordComponent implements OnInit {
   public verifyPasswordCode() {
     this.isSubmited = true;
     if (this.isSubmited && this.verificationCode) {
-      this.signInUpService.verifyCode({ VerificationCode: this.verificationCode, Email: this.sendEmailForm.value.Email })
+      this.signInUpService.verifyCode({ VerificationCode: this.verificationCode, Email: this.email })
         .subscribe(response => {
           if (response.status == 200) {
             this.commanService.callSuccessSwal(response.message);
@@ -94,7 +97,7 @@ export class ForgotPasswordComponent implements OnInit {
       return;
     }
     if (this.isSubmited && this.changePasswordForm.valid) {
-      this.signInUpService.resetPassword({ Password: this.changePasswordForm.value.NewPassword })
+      this.signInUpService.resetPassword({ Password: this.changePasswordForm.value.NewPassword, Email: this.email })
         .subscribe(response => {
           if (response.status == 200) {
             this.commanService.callSuccessSwal(response.message);

@@ -29,6 +29,6 @@ export class SignInUpService {
   }
 
   public resetPassword(data) {
-    return this.httService.postPrivateData(`registration/reset-password`, data)
+    return this.httService.postData(`registration/reset-password`, data)
   }
 }
